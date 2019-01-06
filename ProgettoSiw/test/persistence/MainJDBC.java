@@ -16,7 +16,7 @@ public class MainJDBC
 
 	public static void main(String args[])
 	{
-		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.POSTGRESQL);
+		DAOFactory factory = DatabaseManager.getInstance().getDaoFactory();
 		UtilDao util = factory.getUtilDAO();
 		util.dropDatabase();
 

@@ -1,0 +1,267 @@
+body 
+{
+	background-image: linear-gradient(#000, #121e3d 50%, #212c39);
+    background-repeat: no-repeat;
+	font-family: Comic Sans MS, Circular, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+	font-weight: 500; /* spessore testo */
+    line-height: 1.5; /* altezza riga del testo */
+    text-align: center;
+}
+
+.navbar 
+{
+	background-color: rgba(33, 44, 57, 0.7);
+    padding: 10px;
+    text-align: left;
+}
+
+.nav-item {
+    padding: 10px 15px;
+}
+
+.cover
+{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 700px;
+    background-image: url(../img/cover.jpg);
+	background-size: cover;
+	background-position: center center; /* per allineare verticalmente e orizzontalmente */
+}
+
+.login-iscrizione
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-height: 1000px;
+    padding-top: 150px;
+    background-image: url(../img/login.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+
+.btn
+{
+	padding: .5rem 2rem;
+	font-family: Helvetica;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2;
+    border-radius: .3rem;
+}
+
+.btn-lg{padding: .5rem 4rem;}
+
+.btn-success{background-color: #1DB954;border-color:#1DB954}
+.btn-success:hover{background-color: #1ED760;border-color: #1ED760;}
+.btn-primary{background-color: #0077fb;border-color: #0077fb}
+.btn-primary:hover{background-color: #35a9ff;border-color: #35a9ff;}
+.btn-secondary{color: #000; background-color: transparent; border-color: #6c757d}
+
+.banner
+{
+	min-height: 300px;
+	background-image: url(../img/banner.jpg);
+	background-size: cover;
+	background-position: center center;
+	color: #ffffff;
+	text-align: center;
+	padding:50px;
+}
+
+.content
+{
+	background-color: #f8f8f8;
+	height: 100%; /* per coprire anche i margini degli elementi all'interno */
+	padding: 32px;
+}
+
+.jumbotron
+{
+	background-color: #fff;
+	padding: 32px;
+}
+
+.border
+{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* ombra */
+}
+
+.text-title
+{
+	line-height: 1.2;
+	font-size: 2.5rem;
+    font-weight: 300;
+    padding: 20px;
+}
+
+.text-subtitle
+{
+	text-align: left;
+	line-height: 1.2;
+	font-size: 2rem;
+    font-weight: 300;
+}
+
+.text-message
+{
+	line-height: 1.2;
+	font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.text-small
+{
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.text-note
+{
+    position: absolute;
+    width: inherit;
+    height: auto;
+    color: #919496;
+    text-align: left;
+    font-size: 12px;
+    padding-right:10px;
+}
+
+.check-item{list-style-image: url(../img/icons/check-sign.svg);}
+.cross-item{list-style-image: url(../img/icons/cross-mark.svg);}
+
+.footer
+{
+	background-color: #131517;
+	color: #919496;
+	min-height: 300px;
+}
+
+/*--------------------------------------------------------------------------
+ANIMATE
+--------------------------------------------------------------------------*/
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.delay-1s {
+  animation-delay: 1s;
+}
+
+.animated.delay-2s {
+  animation-delay: 2s;
+}
+
+.animated.delay-3s {
+  animation-delay: 3s;
+}
+
+.animated.delay-4s {
+  animation-delay: 4s;
+}
+
+.animated.delay-5s {
+  animation-delay: 5s;
+}
+
+.animated.fast {
+  animation-duration: 800ms;
+}
+
+.animated.faster {
+  animation-duration: 150ms;
+}
+
+.animated.slow {
+  animation-duration: 1.5s;
+}
+
+.animated.slower {
+  animation-duration: 3s;
+}
+
+@media (prefers-reduced-motion) {
+  .animated {
+    animation: unset !important;
+    transition: none !important;
+  }
+}
+
+/*-------------- bounce --------------*/
+@keyframes bounce {
+  from,
+  20%,
+  53%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.bounce {
+  animation-name: bounce;
+  transform-origin: center bottom;
+}
+
+/*-------------- pulseIn --------------*/
+@keyframes pulseIn {
+  from {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.01, 1.01, 1.01);
+  }
+
+  to {
+    transform: scale(1.02, 1.02);
+  }
+}
+
+.pulseIn {
+  animation-name: pulseIn;
+}
+
+/*-------------- pulseOut --------------*/
+@keyframes pulseOut {
+  from {
+    transform: scale(1.02, 1.02);
+  }
+
+  50% {
+    transform: scale3d(1.01, 1.01, 1.01);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+.pulseOut {
+  animation-name: pulseOut;
+}
