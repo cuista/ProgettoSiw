@@ -9,7 +9,7 @@ body
     text-align: center;
 }
 
-.navbar 
+.navbar
 {
 	background-color: rgba(33, 44, 57, 0.7);
     padding: 10px;
@@ -44,28 +44,9 @@ body
 	background-position: center center;
 }
 
-.btn
-{
-	padding: .5rem 2rem;
-	font-family: Helvetica;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 2;
-    border-radius: .3rem;
-}
-
-.btn-lg{padding: .5rem 4rem;}
-
-.btn-success{background-color: #1DB954;border-color:#1DB954}
-.btn-success:hover{background-color: #1ED760;border-color: #1ED760;}
-.btn-primary{background-color: #0077fb;border-color: #0077fb}
-.btn-primary:hover{background-color: #35a9ff;border-color: #35a9ff;}
-.btn-secondary{color: #000; background-color: transparent; border-color: #6c757d}
-
 .banner
 {
 	min-height: 300px;
-	background-image: url(../img/banner.jpg);
 	background-size: cover;
 	background-position: center center;
 	color: #ffffff;
@@ -91,6 +72,40 @@ body
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* ombra */
 }
 
+.check-item{list-style-image: url(../img/icons/check-sign.svg);}
+.cross-item{list-style-image: url(../img/icons/cross-mark.svg);}
+
+.footer
+{
+	background-color: #131517;
+	color: #919496;
+	min-height: 300px;
+}
+
+/*-----------------------*/
+/* tipi di BOTTONI */
+/*-----------------------*/
+.btn
+{
+	padding: .5rem 2rem;
+	font-family: Helvetica;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 2;
+    border-radius: .3rem;
+}
+
+.btn-lg{padding: .5rem 4rem;}
+
+.btn-success{background-color: #1DB954;border-color:#1DB954}
+.btn-success:hover{background-color: #1ED760;border-color: #1ED760;}
+.btn-primary{background-color: #0077fb;border-color: #0077fb}
+.btn-primary:hover{background-color: #35a9ff;border-color: #35a9ff;}
+.btn-secondary{color: #000; background-color: transparent; border-color: #6c757d}
+
+/*-----------------------*/
+/* tipi di TESTO */
+/*-----------------------*/
 .text-title
 {
 	line-height: 1.2;
@@ -114,6 +129,12 @@ body
     font-weight: 300;
 }
 
+.text-medium
+{
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
 .text-small
 {
 	font-size: 1rem;
@@ -131,15 +152,17 @@ body
     padding-right:10px;
 }
 
-.check-item{list-style-image: url(../img/icons/check-sign.svg);}
-.cross-item{list-style-image: url(../img/icons/cross-mark.svg);}
+.text-gray{color: #919496}
+.text-left{text-align: left;}
 
-.footer
-{
-	background-color: #131517;
-	color: #919496;
-	min-height: 300px;
-}
+/*-----------------------*/
+/* SELEZIONI link o menu */
+/*-----------------------*/
+.dropdown-item:active, .dropdown-item.active{background-color: rgba(33, 44, 57, 0.7);}
+.list-group-item:active, .list-group-item.active{background-color: rgba(33, 44, 57, 0.7);border-color: #919496;}
+.dark-link{color: #fff;}
+.dark-link:hover{color: #919496;}
+
 
 /*--------------------------------------------------------------------------
 ANIMATE

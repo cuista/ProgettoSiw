@@ -29,20 +29,20 @@ public class IscrizioneUtente extends HttpServlet
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		doPost(request, response);
+		doPost(req, resp);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		String email = request.getParameter("email");
-		String confermaEmail = request.getParameter("confermaEmail");
-		String password = request.getParameter("password");
-		String username = request.getParameter("username");
+		String email = req.getParameter("email");
+		String confermaEmail = req.getParameter("confermaEmail");
+		String password = req.getParameter("password");
+		String username = req.getParameter("username");
 		
-		PrintWriter out = response.getWriter();
+		PrintWriter out = resp.getWriter();
 		if(!email.equals(confermaEmail))
 		{
 			out.print("le email non corrispondono"); //stampa su "/iscriviUtente"
@@ -81,11 +81,11 @@ public class IscrizioneUtente extends HttpServlet
 		utenteDao.save(utente);
 		
 		//logga l'utente alla pagina
-		request.getSession().setAttribute("user", utente);
+		req.getSession().setAttribute("user", utente);
 		
 		//reindirizza alla pagina di "iscrizioneSuccesso.html"
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/iscrizioneSuccesso.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(req, resp);
 	}
 }
 	

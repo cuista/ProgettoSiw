@@ -1,0 +1,74 @@
+@media (max-width: 992px)
+{
+	.hide-brand-collapse
+	{
+		display: none;
+	}
+}
+
+@media (min-width: 992px)
+{
+	.hide-sidebar-button
+	{
+		display: none;
+	}
+}
+
+@media (min-width: 992px)
+{
+	.sidebar-collapse
+	{
+		display: block!important; /*uso !important così sovrascrivo il display:block; di collapse! */
+	}
+}
+
+.sidebar
+{
+	padding: 0;
+	background-color:#222326;
+}
+
+.sidebar-button
+{
+    cursor: pointer;
+	width: 100%;
+    border-color: rgba(255,255,255,.1);
+	padding: 10px 30px;
+    font-size: 1.25rem;
+    line-height: 1;
+	color: #fff;
+    background-color: #2e2f31;
+	margin-bottom: -1px;	/* lo fa sovrapporre con il border dell'elemento di sopra o sotto */
+    border: 1px solid rgba(0,0,0,1);
+    border-radius: .25rem;
+}
+
+.list-group-item
+{
+	background-color: #2e2f31;
+}
+
+.list-group-item:first-child
+{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.list-group-item:last-child 
+{
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.contentbar
+{
+	background-color: #fff;
+	min-height:700px;"
+}
+
+.tab-padding
+{
+	padding: 15px;
+}
+
+

@@ -19,12 +19,12 @@ public class Logout extends HttpServlet
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
-		request.getSession().removeAttribute("user");
+		req.getSession().removeAttribute("user");
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(req, resp);
 	}
 
 }

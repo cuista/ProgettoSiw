@@ -18,7 +18,7 @@
  !--------------------------------------------------------------->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
 	<div class="container">
-	  <a class="navbar-brand" href="#">
+	  <a class="navbar-brand" href="index.jsp">
 		<img src="img/brand/brand_white_vinyl.svg" width="150" height="40" class="d-inline-block align-top" alt="vinyl-brand">
 		
 	  </a>
@@ -63,7 +63,7 @@
 			  	<img src="img/icons/user.svg" class="d-inline-block align-top rounded-circle border border-light" alt="user-icon" style="margin-right: 5px;" height="24">Profilo
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  		<a class="dropdown-item" href="#">Account</a>
+			  		<a class="dropdown-item" href="gestioneUtente.jsp">Account</a>
 			  		<a class="dropdown-item disabled" href="Logout">Disconnetti</a>
 				</div>
 			</li>
@@ -90,7 +90,7 @@
 				<h1 class="text-small"><span style="font-weight: 600;">Iscriviti con il tuo indirizzo email.</span></h1>
 				<!-- FORM-GROUP -->
 				<div class="form-group"><input name="email" type="text" class="form-control" placeholder="Indirizzo Email"></div>
-				<div class="form-group"><input name="confermaEmail" type=text class="form-control" placeholder="Conferma Indirizzo Email"></div>
+				<div class="form-group"><input name="confermaEmail" type="text" class="form-control" placeholder="Conferma Indirizzo Email"></div>
 				<div class="form-group"><input name="password" type="password" class="form-control" aria-describedby="passwordHelp" placeholder="Password"></div>
 				<div class="form-group"><input name="username" type="text" class="form-control" placeholder="Username"></div>
 				<!-- -->
@@ -138,20 +138,7 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-<script>
-$(document).ready(function(){
-	$(".jumbotron").addClass("animated faster");
-	$(".jumbotron").on("mouseover",function(){
-			$(this).addClass("pulseIn");
-			$(this).removeClass("pulseOut");
-		});
-	$(".jumbotron").on("mouseleave",function(){
-			$(this).addClass("pulseOut");
-			$(this).removeClass("pulseIn");
-		});
-	});
-</script>
+<script type="text/javascript" src="js/jumbotronAnimation.js"></script>
 
 
 </body>

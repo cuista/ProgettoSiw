@@ -26,16 +26,22 @@ public class Login extends  HttpServlet
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		HttpSession sessione=request.getSession();
+		doPost(req,resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+	{
+		HttpSession sessione=req.getSession();
 
 		UtenteDao utenteDao=DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 
 		sessione.removeAttribute("user");
 
-		String email= request.getParameter("email");
-		String password= request.getParameter("password");
+		String email= req.getParameter("email");
+		String password= req.getParameter("password");
 
 		List<Utente> utenti=utenteDao.findAll();
 
@@ -48,15 +54,15 @@ public class Login extends  HttpServlet
 			}
 		}
 
-		PrintWriter out = response.getWriter();
+		PrintWriter out = resp.getWriter();
 		if(sessione.getAttribute("user") == null)
 		{
 			out.print("fallito");
 		}
 		else
 		{
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-			dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/loginSuccesso.jsp");
+			dispatcher.forward(req, resp);
 		}
 	}
 
