@@ -7,30 +7,30 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Object3;
-import persistence.dao.Object3Dao;
+import model.Playlist;
+import persistence.dao.PlaylistDao;
 
-public class Object3DaoJDBC implements Object3Dao
+public class PlaylistDaoJDBC implements PlaylistDao
 {
 	private DataSource dataSource;
 
-	public Object3DaoJDBC(DataSource dataSource)
+	public PlaylistDaoJDBC(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
 	}
 
 	@Override
-	public void save(Object3 object3)
+	public void save(Playlist playlist)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
 			Long id = IdBroker.getId(connection);
-			object3.setId(id);
-			String insert = "insert into object3(id, attribute) values (?,?)";
+			playlist.setId(id);
+			String insert = "insert into playlist(id, nome) values (?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setLong(1, object3.getId());
-			statement.setInt(2, object3.getAttribute());
+			statement.setLong(1, playlist.getId());
+			statement.setString(2, playlist.getNome());
 
 			statement.executeUpdate();
 		} catch (SQLException e)
@@ -58,20 +58,20 @@ public class Object3DaoJDBC implements Object3Dao
 	}
 
 	@Override
-	public Object3 findByPrimaryKey(Long id)
+	public Playlist findByPrimaryKey(Long id)
 	{
 		Connection connection = this.dataSource.getConnection();
-		Object3 object3 = null;
+		Playlist playlist = null;
 		try
 		{
-			String insert = "select * from object3 where id=?";
+			String insert = "select * from playlist where id=?";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				object3 = new Object3(result.getInt("attribute"));
-				object3.setId(id);
+				playlist = new Playlist(result.getString("nome"));
+				playlist.setId(id);
 			}
 		} catch (SQLException e)
 		{
@@ -95,25 +95,25 @@ public class Object3DaoJDBC implements Object3Dao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		return object3;
+		return playlist;
 	}
 
 	@Override
-	public List<Object3> findAll()
+	public List<Playlist> findAll()
 	{
 		Connection connection = this.dataSource.getConnection();
-		List<Object3> list_object3 = new LinkedList<>();
+		List<Playlist> list_playlist = new LinkedList<>();
 		try
 		{
-			String insert = "select * from object3";
+			String insert = "select * from playlist";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Object3 object3 = new Object3(result.getInt("attribute"));
-				object3.setId(result.getLong("id"));
+				Playlist playlist = new Playlist(result.getString("nome"));
+				playlist.setId(result.getLong("id"));
 
-				list_object3.add(object3);
+				list_playlist.add(playlist);
 			}
 		} catch (SQLException e)
 		{
@@ -137,19 +137,19 @@ public class Object3DaoJDBC implements Object3Dao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		return list_object3;
+		return list_playlist;
 	}
 
 	@Override
-	public void update(Object3 object3)
+	public void update(Playlist playlist)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String update = "update object3 SET attribute = ? WHERE id = ?";
+			String update = "update playlist SET nome = ? WHERE id = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
-			statement.setLong(1, object3.getAttribute());
-			statement.setLong(2, object3.getId());
+			statement.setString(1, playlist.getNome());
+			statement.setLong(2, playlist.getId());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -176,14 +176,14 @@ public class Object3DaoJDBC implements Object3Dao
 	}
 
 	@Override
-	public void delete(Object3 object3)
+	public void delete(Playlist playlist)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String delete = "delete FROM object3 WHERE id = ? ";
+			String delete = "delete FROM playlist WHERE id = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.setLong(1, object3.getId());
+			statement.setLong(1, playlist.getId());
 			connection.setAutoCommit(false);
 			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 			statement.executeUpdate();

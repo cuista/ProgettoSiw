@@ -21,9 +21,10 @@ public class UtilDao
 		{
 			String delete = "drop SEQUENCE if EXISTS sequenza_id;"
 							+ "drop table if exists utente;"
-							+ "drop table if exists object1;" 
-							+ "drop table if exists object2;"
-							+ "drop table if exists object3;";
+							+ "drop table if exists canzone;" 
+							+ "drop table if exists album;"
+							+ "drop table if exists artista;"
+							+ "drop table if exists playlist;";
 			PreparedStatement statement = connection.prepareStatement(delete);
 
 			statement.executeUpdate();
@@ -53,13 +54,14 @@ public class UtilDao
 		try
 		{
 
-			String delete = "create SEQUENCE sequenza_id;"
+			String create = "create SEQUENCE sequenza_id;"
 					+ "create table utente (\"username\" varchar(255) primary key, email varchar(255), password varchar(255));"
-					+ "create table object1 (\"id\" bigint primary key, attribute int);"
-					+ "create table object2 (\"id\" bigint primary key, attribute int);"
-					+ "create table object3 (\"id\" bigint primary key, attribute int);";
+					+ "create table canzone (\"id\" bigint primary key, titolo varchar(255), durata float);"
+					+ "create table album (\"id\" bigint primary key, titolo varchar(255), anno int, genere varchar(255));"
+					+ "create table artista (\"id\" bigint primary key, nome varchar(255), paese varchar(255));"
+					+ "create table playlist (\"id\" bigint primary key, nome varchar(255));";
 
-			PreparedStatement statement = connection.prepareStatement(delete);
+			PreparedStatement statement = connection.prepareStatement(create);
 
 			statement.executeUpdate();
 			System.out.println("Executed create database");

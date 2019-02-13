@@ -1,8 +1,9 @@
 package persistence;
 
-import persistence.dao.Object1Dao;
-import persistence.dao.Object2Dao;
-import persistence.dao.Object3Dao;
+import persistence.dao.CanzoneDao;
+import persistence.dao.PlaylistDao;
+import persistence.dao.AlbumDao;
+import persistence.dao.ArtistaDao;
 import persistence.dao.UtenteDao;
 
 public abstract class DAOFactory {
@@ -47,12 +48,14 @@ public abstract class DAOFactory {
 	 */
 	public abstract UtenteDao getUtenteDAO();
 	
-	public abstract Object1Dao getObject1DAO();
+	public abstract CanzoneDao getCanzoneDAO();
 	
-	public abstract Object2Dao getObject2DAO();
+	public abstract AlbumDao getAlbumDAO();
 	
-	public abstract Object3Dao getObject3DAO();
+	public abstract ArtistaDao getArtistaDAO();
 
+	public abstract PlaylistDao getPlaylistDAO();
+	
 	public abstract persistence.UtilDao getUtilDAO();
 
 }

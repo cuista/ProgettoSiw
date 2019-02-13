@@ -1,8 +1,9 @@
 package persistence;
 
-import persistence.dao.Object1Dao;
-import persistence.dao.Object2Dao;
-import persistence.dao.Object3Dao;
+import persistence.dao.CanzoneDao;
+import persistence.dao.PlaylistDao;
+import persistence.dao.AlbumDao;
+import persistence.dao.ArtistaDao;
 import persistence.dao.UtenteDao;
 
 class PostgresDAOFactory extends DAOFactory {
@@ -37,25 +38,33 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 	
 	@Override
-	public Object1Dao getObject1DAO() {
-		return new Object1DaoJDBC(dataSource);
+	public CanzoneDao getCanzoneDAO()
+	{
+		return new CanzoneDaoJDBC(dataSource);
 	}
 
 	@Override
-	public Object2Dao getObject2DAO()
+	public AlbumDao getAlbumDAO()
 	{
-		return new Object2DaoJDBC(dataSource);
+		return new AlbumDaoJDBC(dataSource);
 	}
 
 	@Override
-	public Object3Dao getObject3DAO()
+	public ArtistaDao getArtistaDAO()
 	{
-		return new Object3DaoJDBC(dataSource);
+		return new ArtistaDaoJDBC(dataSource);
 	}
-
+	
+	@Override
+	public PlaylistDao getPlaylistDAO()
+	{
+		return new PlaylistDaoJDBC(dataSource);
+	}
+	
 	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}
+
 
 }

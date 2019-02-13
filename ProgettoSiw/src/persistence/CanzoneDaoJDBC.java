@@ -7,30 +7,31 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Object1;
-import persistence.dao.Object1Dao;
+import model.Canzone;
+import persistence.dao.CanzoneDao;
 
-public class Object1DaoJDBC implements Object1Dao
+public class CanzoneDaoJDBC implements CanzoneDao
 {
 	private DataSource dataSource;
 
-	public Object1DaoJDBC(DataSource dataSource)
+	public CanzoneDaoJDBC(DataSource dataSource)
 	{
 		this.dataSource = dataSource;
 	}
 
 	@Override
-	public void save(Object1 object1)
+	public void save(Canzone canzone)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
 			Long id = IdBroker.getId(connection);
-			object1.setId(id);
-			String insert = "insert into object1(id, attribute) values (?,?)";
+			canzone.setId(id);
+			String insert = "insert into canzone(id, titolo, durata) values (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
-			statement.setLong(1, object1.getId());
-			statement.setInt(2, object1.getAttribute());
+			statement.setLong(1, canzone.getId());
+			statement.setString(2, canzone.getTitolo());
+			statement.setFloat(3, canzone.getDurata());
 
 			statement.executeUpdate();
 		} catch (SQLException e)
@@ -58,20 +59,20 @@ public class Object1DaoJDBC implements Object1Dao
 	}
 
 	@Override
-	public Object1 findByPrimaryKey(Long id)
+	public Canzone findByPrimaryKey(Long id)
 	{
 		Connection connection = this.dataSource.getConnection();
-		Object1 object1=null;
+		Canzone canzone=null;
 		try
 		{
-			String insert = "select * from object1 where id=?";
+			String insert = "select * from canzone where id=?";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, id);
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				object1 = new Object1(result.getInt("attribute"));
-				object1.setId(id);
+				canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"));
+				canzone.setId(id);
 			}
 		} catch (SQLException e)
 		{
@@ -95,25 +96,25 @@ public class Object1DaoJDBC implements Object1Dao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		return object1;
+		return canzone;
 	}
 
 	@Override
-	public List<Object1> findAll()
+	public List<Canzone> findAll()
 	{
 		Connection connection = this.dataSource.getConnection();
-		List<Object1> list_object1=new LinkedList<>();
+		List<Canzone> list_canzone=new LinkedList<>();
 		try
 		{
-			String insert = "select * from object1";
+			String insert = "select * from canzone";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Object1 object1 = new Object1(result.getInt("attribute"));
-				object1.setId(result.getLong("id"));
+				Canzone canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"));
+				canzone.setId(result.getLong("id"));
 				
-				list_object1.add(object1);
+				list_canzone.add(canzone);
 			}
 		} catch (SQLException e)
 		{
@@ -137,19 +138,20 @@ public class Object1DaoJDBC implements Object1Dao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
-		return list_object1;
+		return list_canzone;
 	}
 
 	@Override
-	public void update(Object1 object1)
+	public void update(Canzone canzone)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String update = "update object1 SET attribute = ? WHERE id = ?";
+			String update = "update canzone SET titolo = ?, durata = ? WHERE id = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
-			statement.setLong(1, object1.getAttribute());		
-			statement.setLong(2, object1.getId());
+			statement.setString(1, canzone.getTitolo());
+			statement.setFloat(2, canzone.getDurata());	
+			statement.setLong(3, canzone.getId());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -176,14 +178,14 @@ public class Object1DaoJDBC implements Object1Dao
 	}
 
 	@Override
-	public void delete(Object1 object1)
+	public void delete(Canzone canzone)
 	{
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String delete = "delete FROM object1 WHERE id = ? ";
+			String delete = "delete FROM canzone WHERE id = ? ";
 			PreparedStatement statement = connection.prepareStatement(delete);
-			statement.setLong(1, object1.getId());
+			statement.setLong(1, canzone.getId());
 			connection.setAutoCommit(false);
 			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 			statement.executeUpdate();
