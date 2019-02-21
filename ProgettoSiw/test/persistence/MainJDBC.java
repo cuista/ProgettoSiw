@@ -32,48 +32,48 @@ public class MainJDBC
 		PlaylistDao playlistDao = factory.getPlaylistDAO();
 
 		//INSTANCES UTENTE,ETC..
-		Utente destiny= new Utente("destiny", "destiny@gmail.com", "berlusconiErMeglio");
-		Utente chimera= new Utente("chimera", "chimera@gmail.com", "salvenee");
-		Utente fragola86= new Utente("fragola86", "fragola86@gmail.com", "pompei");
-		Utente banana33= new Utente("banana33", "banana33@gmail.com", "cetriolo");
-		
-		Canzone canzone1=new Canzone("titolo1",(float) 5.32);
-		Canzone canzone2=new Canzone("titolo2",(float) 3.44);
-		Canzone canzone3=new Canzone("titolo3",(float) 3.25);
-		Canzone canzone4=new Canzone("titolo4",(float) 4.21);
-		Canzone canzone5=new Canzone("titolo5",(float) 4.16);
-		
-		Album album1=new Album("album1",2002,"pop");
-		Album album2=new Album("album2",1998,"rock");
-		Album album3=new Album("album3",2002,"rap");
+		Utente destiny= new Utente("destiny", "destiny@gmail.com", "lattuga", false);
+		Utente chimera= new Utente("chimera", "chimera@gmail.com", "salvenee", false);
+		Utente fragola86= new Utente("fragola86", "fragola86@gmail.com", "pompei", true);
+		Utente banana33= new Utente("banana33", "banana33@gmail.com", "cetriolo", false);
 		
 		Artista artista1=new Artista("Red Hot Chili Peppers","USA");
 		Artista artista2=new Artista("Muse","United Kingdom");
 		Artista artista3=new Artista("Luci351 Battisti","Itttalia");
 		
-		Playlist playlist1=new Playlist("playlist1");
-		Playlist playlist2=new Playlist("playlist2");
-		Playlist playlist3=new Playlist("playlist3");
+		Album album1=new Album("album1",2002,"pop",artista3);
+		Album album2=new Album("album2",1998,"rock",artista1);
+		Album album3=new Album("album3",2002,"metal",artista2);
+		
+		Canzone canzone1=new Canzone("titolo1",(float) 5.32,album1);
+		Canzone canzone2=new Canzone("titolo2",(float) 3.44,album1);
+		Canzone canzone3=new Canzone("titolo3",(float) 3.25,album2);
+		Canzone canzone4=new Canzone("titolo4",(float) 4.21,album2);
+		Canzone canzone5=new Canzone("titolo5",(float) 4.16,album2);
+		
+		Playlist playlist1=new Playlist("playlist1",destiny);
+		Playlist playlist2=new Playlist("playlist2",chimera);
+		Playlist playlist3=new Playlist("playlist3",banana33);
 
-		//SAVE UTENTE,ETC..
+		//SAVE UTENTE,ETC.. (RISPETTARE ORDINE DIPENDENZE)
 		utenteDao.save(destiny);
 		utenteDao.save(chimera);
 		utenteDao.save(fragola86);
 		utenteDao.save(banana33);
+		
+		artistaDao.save(artista1);
+		artistaDao.save(artista2);
+		artistaDao.save(artista3);
+		
+		albumDao.save(album1);
+		albumDao.save(album2);
+		albumDao.save(album3);
 		
 		canzoneDao.save(canzone1);
 		canzoneDao.save(canzone2);
 		canzoneDao.save(canzone3);
 		canzoneDao.save(canzone4);
 		canzoneDao.save(canzone5);
-		
-		albumDao.save(album1);
-		albumDao.save(album2);
-		albumDao.save(album3);
-		
-		artistaDao.save(artista1);
-		artistaDao.save(artista2);
-		artistaDao.save(artista3);
 		
 		playlistDao.save(playlist1);
 		playlistDao.save(playlist2);
@@ -87,7 +87,9 @@ public class MainJDBC
 		playlistDao.delete(playlist3);
 		
 		//UPDATE
+		destiny.setPassword("wengweng");
 		destiny.setEmail("real_destiny@gmail.com");
+		destiny.setPremium(true);
 		utenteDao.update(destiny);
 		
 		canzone1.setTitolo("nuovoTitolo");
@@ -103,7 +105,16 @@ public class MainJDBC
 		artista3.setPaese("Italia");
 		artistaDao.update(artista3);
 		
-		playlist2.setNome("nuovaPlaylist");
+		playlist1.setNome("nuovaPlaylist1");
+		playlist1.addCanzone(canzone1);
+		playlist1.addCanzone(canzone3);
+		playlist1.addCanzone(canzone4);
+		playlistDao.update(playlist1);
+		
+		playlist2.setNome("nuovaPlaylist2");
+		playlist2.addCanzone(canzone2);
+		playlist2.addCanzone(canzone4);
+		playlist2.addCanzone(canzone1);
 		playlistDao.update(playlist2);
 		
 		//NON SETTARE LE CHIAVI PRIMARIE, IL SUO UPDATE NEL DATABASE NON POTRA' ANDARE
@@ -115,27 +126,27 @@ public class MainJDBC
 		List<Utente> utenti= utenteDao.findAll();
 		for(Utente utente: utenti)
 		{
-			System.out.println(utente.getUsername() + " - email: " + utente.getEmail() + " - email: " + utente.getPassword());
+			System.out.println(utente.getUsername() + " - email: " + utente.getEmail() + " - password: " + utente.getPassword() + " - premium: " + utente.isPremium());
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
 		
-		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA OBJECTS1>");
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA CANZONE>");
 		List<Canzone> list_canzone= canzoneDao.findAll();
 		for (Canzone canzone : list_canzone)
 		{
-			System.out.println("id: " + canzone.getId() + " - titolo: " + canzone.getTitolo() + " - durata: " + canzone.getDurata());
+			System.out.println("id: " + canzone.getId() + " - titolo: " + canzone.getTitolo() + " - durata: " + canzone.getDurata() + " - album: " + canzone.getAlbum().getTitolo());
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
 		
-		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA OBJECTS1>");
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA ALBUM>");
 		List<Album> list_album= albumDao.findAll();
 		for (Album album : list_album)
 		{
-			System.out.println("id: " + album.getId() + " - titolo: " + album.getTitolo() + " - anno: " + album.getAnno() + " - genere: " + album.getGenere());
+			System.out.println("id: " + album.getId() + " - titolo: " + album.getTitolo() + " - anno: " + album.getAnno() + " - genere: " + album.getGenere() + " - artista: " + album.getArtista().getNome());
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
 		
-		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA OBJECTS1>");
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA ARTISTA>");
 		List<Artista> list_artista= artistaDao.findAll();
 		for (Artista artista : list_artista)
 		{
@@ -143,11 +154,24 @@ public class MainJDBC
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");
 		
-		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA OBJECTS1>");
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA PLAYLIST>");
 		List<Playlist> list_playlist= playlistDao.findAll();
 		for (Playlist playlist : list_playlist)
 		{
 			System.out.println("id: " + playlist.getId() + " - nome: " + playlist.getNome());
+		}
+		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
+
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA RACCOLTA>");
+		for(Playlist playlist : list_playlist)
+		{
+			System.out.println("PLAYLIST: id: " + playlist.getId() + " - nome: " + playlist.getNome());
+			System.out.print("	{");
+			for (Canzone canzone : playlist.getCanzoni())
+			{
+				System.out.print(canzone.getTitolo() + "; ");
+			}
+			System.out.println("}");
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
 

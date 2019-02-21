@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Playlist;
 import model.Utente;
 import persistence.dao.UtenteDao;
 
@@ -25,11 +26,12 @@ public class UtenteDaoJDBC implements UtenteDao
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String insert = "insert into utente(username, email, password) values (?,?,?)";
+			String insert = "insert into utente(username, email, password, premium) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setString(1, utente.getUsername());
 			statement.setString(2, utente.getEmail());
 			statement.setString(3, utente.getPassword());
+			statement.setBoolean(4, utente.isPremium());
 
 			statement.executeUpdate();
 		} catch (SQLException e)
@@ -70,7 +72,7 @@ public class UtenteDaoJDBC implements UtenteDao
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				utente = new Utente(result.getString("username"), result.getString("email"),result.getString("password"));
+				utente = new Utente(result.getString("username"), result.getString("email"), result.getString("password"), result.getBoolean("premium"));
 			}
 		} catch (SQLException e)
 		{
@@ -102,7 +104,7 @@ public class UtenteDaoJDBC implements UtenteDao
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Utente utente = new Utente(result.getString("username"), result.getString("email"),result.getString("password"));
+				Utente utente = new Utente(result.getString("username"), result.getString("email"), result.getString("password"), result.getBoolean("premium"));
 
 				list_utente.add(utente);
 			}
@@ -128,11 +130,12 @@ public class UtenteDaoJDBC implements UtenteDao
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String update = "update utente SET email = ?, password = ? WHERE username = ?";
+			String update = "update utente SET email = ?, password = ?, premium = ? WHERE username = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, utente.getEmail());
 			statement.setString(2, utente.getPassword());
-			statement.setString(3, utente.getUsername());
+			statement.setBoolean(3, utente.isPremium());
+			statement.setString(4, utente.getUsername());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -169,6 +172,8 @@ public class UtenteDaoJDBC implements UtenteDao
 			statement.setString(1, utente.getUsername());
 			connection.setAutoCommit(false);
 			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+			this.removeForeignKeyDaPlaylist(utente, connection);
+			this.removeForeignKeyDaCondivisione(utente, connection);
 			statement.executeUpdate();
 			connection.commit();
 		} catch (SQLException e)
@@ -183,7 +188,25 @@ public class UtenteDaoJDBC implements UtenteDao
 			{
 				throw new PersistenceException(e.getMessage());
 			}
+		}	
+	}
+	
+	private void removeForeignKeyDaPlaylist(Utente utente, Connection connection) throws SQLException 
+	{	
+		for (Playlist playlistCondivisa : utente.getPlaylistCondivise())
+		{
+			String condivisione = "update condivisione SET utente = NULL WHERE id = ?";
+			PreparedStatement statement = connection.prepareStatement(condivisione);
+			statement.setLong(1, playlistCondivisa.getId());
+			statement.executeUpdate();
 		}
-		
+	}
+	
+	private void removeForeignKeyDaCondivisione(Utente utente, Connection connection) throws SQLException 
+	{	
+		String playlist = "update playlist SET utente = NULL WHERE utente = ? ";
+		PreparedStatement statement = connection.prepareStatement(playlist);
+		statement.setString(1, utente.getUsername());
+		statement.executeUpdate();
 	}
 }

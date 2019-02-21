@@ -33,7 +33,7 @@
 			<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#">Premium</a>
+			<a class="nav-link" href="premium.jsp">Premium</a>
 		  </li>
 		  <li class="nav-item dropdown" style="margin-right: 30px;">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -117,7 +117,7 @@
 				</aside>
 				Copyright © 2019 - Cuista
 				<p class="lead"> 
-					Visita la mia <a href="https://github.com/cuista" target="_blank"> Pagina GitHub </a> <br> per visionare altri miei progetti
+					Visita la mia <a href="https://github.com/cuista" target="_blank"> Pagina GitHub</a> <br> per visionare altri miei progetti
 				</p>
 			</div>
 		</div>

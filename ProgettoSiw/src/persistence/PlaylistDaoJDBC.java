@@ -7,8 +7,11 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Canzone;
 import model.Playlist;
+import persistence.dao.CanzoneDao;
 import persistence.dao.PlaylistDao;
+import persistence.dao.UtenteDao;
 
 public class PlaylistDaoJDBC implements PlaylistDao
 {
@@ -27,11 +30,12 @@ public class PlaylistDaoJDBC implements PlaylistDao
 		{
 			Long id = IdBroker.getId(connection);
 			playlist.setId(id);
-			String insert = "insert into playlist(id, nome) values (?,?)";
+			String insert = "insert into playlist(id, nome, utente) values (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, playlist.getId());
 			statement.setString(2, playlist.getNome());
-
+			statement.setString(3, playlist.getUtente().getUsername());
+			this.updateCanzoniDiPlaylist(playlist,connection);
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -61,6 +65,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 	public Playlist findByPrimaryKey(Long id)
 	{
 		Connection connection = this.dataSource.getConnection();
+		UtenteDao utenteDao=DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		Playlist playlist = null;
 		try
 		{
@@ -70,7 +75,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				playlist = new Playlist(result.getString("nome"));
+				playlist = new Playlist(result.getString("nome"), utenteDao.findByPrimaryKey(result.getString("utente")));
 				playlist.setId(id);
 			}
 		} catch (SQLException e)
@@ -102,6 +107,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 	public List<Playlist> findAll()
 	{
 		Connection connection = this.dataSource.getConnection();
+		UtenteDao utenteDao=DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		List<Playlist> list_playlist = new LinkedList<>();
 		try
 		{
@@ -110,7 +116,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Playlist playlist = new Playlist(result.getString("nome"));
+				Playlist playlist = new Playlist(result.getString("nome"), utenteDao.findByPrimaryKey(result.getString("utente")));
 				playlist.setId(result.getLong("id"));
 
 				list_playlist.add(playlist);
@@ -150,6 +156,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, playlist.getNome());
 			statement.setLong(2, playlist.getId());
+			this.updateCanzoniDiPlaylist(playlist,connection);
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -186,6 +193,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 			statement.setLong(1, playlist.getId());
 			connection.setAutoCommit(false);
 			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+			this.deletePlaylistDaUtente(playlist, connection);
 			statement.executeUpdate();
 			connection.commit();
 		} catch (SQLException e)
@@ -201,5 +209,60 @@ public class PlaylistDaoJDBC implements PlaylistDao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+	}
+
+	private void updateCanzoniDiPlaylist(Playlist playlist, Connection connection) throws SQLException
+	{
+		CanzoneDao canzoneDao = DatabaseManager.getInstance().getDaoFactory().getCanzoneDAO();
+		for (Canzone canzoneDaEliminare : playlist.getCanzoniDaEliminare())
+		{	
+			String eliminazioneCanzone = "delete FROM raccolta WHERE playlist=? AND canzone=?";
+			PreparedStatement statement = connection.prepareStatement(eliminazioneCanzone);
+			statement.setLong(1, playlist.getId());
+			statement.setLong(2, canzoneDaEliminare.getId());
+			statement.executeUpdate();
+		}
+		playlist.getCanzoniDaEliminare().clear();
+		
+		for (Canzone canzoneDaAggiungere : playlist.getCanzoniDaAggiungere())
+		{
+			//Se la canzone non è salvata, la salvo!
+			if (canzoneDao.findByPrimaryKey(canzoneDaAggiungere.getId()) == null)
+				canzoneDao.save(canzoneDaAggiungere);
+			
+			String presenzaCanzone = "select id FROM raccolta WHERE canzone=? AND playlist=?";
+			PreparedStatement statement = connection.prepareStatement(presenzaCanzone);
+			statement.setLong(1, canzoneDaAggiungere.getId());
+			statement.setLong(2, playlist.getId());
+			ResultSet result = statement.executeQuery();
+			if(!result.next())
+			{			
+				Long id = IdBroker.getId(connection);
+				String aggiungiCanzone = "insert into raccolta(id, canzone, playlist) values (?,?,?)";
+				PreparedStatement statementAggiungiCanzone = connection.prepareStatement(aggiungiCanzone);
+				statementAggiungiCanzone.setLong(1,id);
+				statementAggiungiCanzone.setLong(2,canzoneDaAggiungere.getId());
+				statementAggiungiCanzone.setLong(3,playlist.getId());
+				statementAggiungiCanzone.executeUpdate();
+			}
+		}
+		playlist.getCanzoniDaAggiungere().clear();
+	}
+	
+	private void deletePlaylistDaUtente(Playlist playlist, Connection connection) throws SQLException
+	{
+		String deleteCondivisione = "delete FROM condivisione WHERE playlist = ? ";
+		PreparedStatement statement1 = connection.prepareStatement(deleteCondivisione);
+		statement1.setLong(1, playlist.getId());
+		statement1.executeUpdate();
+		
+		String deleteRaccolta = "delete FROM raccolta WHERE playlist = ? ";
+		PreparedStatement statement2 = connection.prepareStatement(deleteRaccolta);
+		statement2.setLong(1, playlist.getId());
+		statement2.executeUpdate();
+		
+		playlist.getCanzoni().clear();
+		playlist.getCanzoniDaAggiungere().clear();
+		playlist.getCanzoniDaEliminare().clear();
 	}
 }

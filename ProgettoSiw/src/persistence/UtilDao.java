@@ -20,11 +20,13 @@ public class UtilDao
 		try
 		{
 			String delete = "drop SEQUENCE if EXISTS sequenza_id;"
+							+ "drop table if exists raccolta;"
+							+ "drop table if exists condivisione;"
+							+ "drop table if exists playlist;"
 							+ "drop table if exists utente;"
-							+ "drop table if exists canzone;" 
-							+ "drop table if exists album;"
-							+ "drop table if exists artista;"
-							+ "drop table if exists playlist;";
+							+ "drop table if exists canzone;"
+							+ "drop table if exists album;" 
+							+ "drop table if exists artista;";
 			PreparedStatement statement = connection.prepareStatement(delete);
 
 			statement.executeUpdate();
@@ -55,11 +57,13 @@ public class UtilDao
 		{
 
 			String create = "create SEQUENCE sequenza_id;"
-					+ "create table utente (\"username\" varchar(255) primary key, email varchar(255), password varchar(255));"
-					+ "create table canzone (\"id\" bigint primary key, titolo varchar(255), durata float);"
-					+ "create table album (\"id\" bigint primary key, titolo varchar(255), anno int, genere varchar(255));"
 					+ "create table artista (\"id\" bigint primary key, nome varchar(255), paese varchar(255));"
-					+ "create table playlist (\"id\" bigint primary key, nome varchar(255));";
+					+ "create table album (\"id\" bigint primary key, titolo varchar(255), anno int, genere varchar(255), artista bigint REFERENCES artista(\"id\"));"
+					+ "create table canzone (\"id\" bigint primary key, titolo varchar(255), durata float, album bigint REFERENCES album(\"id\"));"
+					+ "create table utente (\"username\" varchar(255) primary key, email varchar(255), password varchar(255), premium boolean);"
+					+ "create table playlist (\"id\" bigint primary key, nome varchar(255), utente varchar(255) REFERENCES utente(\"username\"));"
+					+ "create table raccolta (\"id\" bigint primary key, canzone bigint REFERENCES canzone(\"id\"), playlist bigint REFERENCES playlist(\"id\"));"
+					+ "create table condivisione (\"id\" bigint primary key, utente varchar(255) REFERENCES utente(\"username\"), playlist bigint REFERENCES playlist(\"id\"));";
 
 			PreparedStatement statement = connection.prepareStatement(create);
 

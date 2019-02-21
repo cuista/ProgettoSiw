@@ -8,6 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Artista;
+import model.Utente;
+import persistence.dao.AlbumDao;
 import persistence.dao.ArtistaDao;
 
 public class ArtistaDaoJDBC implements ArtistaDao
@@ -32,7 +34,6 @@ public class ArtistaDaoJDBC implements ArtistaDao
 			statement.setLong(1, artista.getId());
 			statement.setString(2, artista.getNome());
 			statement.setString(3, artista.getPaese());
-
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -189,6 +190,7 @@ public class ArtistaDaoJDBC implements ArtistaDao
 			connection.setAutoCommit(false);
 			connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
 			statement.executeUpdate();
+			this.removeForeignKeyDaAlbum(artista,connection);
 			connection.commit();
 		} catch (SQLException e)
 		{
@@ -203,5 +205,27 @@ public class ArtistaDaoJDBC implements ArtistaDao
 				throw new PersistenceException(e.getMessage());
 			}
 		}
+	}
+	
+//	private void deleteAlbumDiArtista(Artista artista, Connection connection) throws SQLException 
+//	{	
+//		AlbumDao albumDao=DatabaseManager.getInstance().getDaoFactory().getAlbumDAO();
+//		String albumToDelete = "select id FROM album WHERE artista = ? ";
+//		PreparedStatement statement = connection.prepareStatement(albumToDelete);
+//		statement.setLong(1, artista.getId());
+//		ResultSet result = statement.executeQuery();
+//		while(result.next())
+//		{
+//			albumDao.delete(albumDao.findByPrimaryKey(result.getLong("id")));
+//			statement.executeUpdate();
+//		}
+//	}
+	
+	private void removeForeignKeyDaAlbum(Artista artista, Connection connection) throws SQLException 
+	{	
+		String playlist = "update album SET artista = NULL WHERE artista = ? ";
+		PreparedStatement statement = connection.prepareStatement(playlist);
+		statement.setLong(1, artista.getId());
+		statement.executeUpdate();
 	}
 }

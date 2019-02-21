@@ -1,5 +1,11 @@
+html
+{
+	height:100%;
+}
+
 body 
 {
+	height:100%;
 	background-image: linear-gradient(#000, #121e3d 50%, #212c39);
     background-repeat: no-repeat;
 	font-family: Comic Sans MS, Circular, Helvetica, Arial, sans-serif;

@@ -34,7 +34,7 @@
 			<a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#">Premium</a>
+			<a class="nav-link" href="premium.jsp">Premium</a>
 		  </li>
 		  <li class="nav-item dropdown" style="margin-right: 30px;">
 			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,8 +103,8 @@
 			</div>
 			<div class="row" style="padding:10px 0;">
 				<div class="col-10 offset-1" style="padding: 0;">
-					<div class="sidebar-button hide-sidebar-button" href="#" type="button" role="tablist" data-toggle="collapse" data-target="#side-menu-collapse" aria-expanded="false">
-						MENÙ
+					<div class="sidebar-button hide-sidebar-button" role="tablist" data-toggle="collapse" data-target="#side-menu-collapse" aria-expanded="false">
+						<img src="img/icons/menu.svg" class="d-inline-block align-top" alt="menu-icon" style="margin-right: 5px;" height="24">
 					</div>
 					<div class="collapse sidebar-collapse list-group" id="side-menu-collapse">
 						<a class="nav-link dark-link list-group-item active" id="tab-elem0" data-toggle="tab" role="tab" aria-controls="elem0" aria-selected="true" href="#elem0">Riepilogo</a>
@@ -224,7 +224,7 @@
 				</aside>
 				Copyright © 2019 - Cuista
 				<p class="lead"> 
-					Visita la mia <a href="https://github.com/cuista" target="_blank"> Pagina GitHub </a> <br> per visionare altri miei progetti
+					Visita la mia <a href="https://github.com/cuista" target="_blank"> Pagina GitHub</a> <br> per visionare altri miei progetti
 				</p>
 			</div>
 		</div>

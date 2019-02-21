@@ -77,7 +77,7 @@ public class IscrizioneUtente extends HttpServlet
 		}
 
 		//registriamo l'utente al db
-		Utente utente=new Utente(username, email, password);
+		Utente utente=new Utente(username, email, password, false);
 		utenteDao.save(utente);
 		
 		//logga l'utente alla pagina

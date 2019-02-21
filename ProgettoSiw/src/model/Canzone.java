@@ -5,11 +5,13 @@ public class Canzone
 	private Long id;
 	private String titolo;
 	private float durata;
+	private Album album;
 
-	public Canzone(String titolo, float durata)
+	public Canzone(String titolo, float durata, Album album)
 	{
 		this.titolo = titolo;
 		this.durata = durata;
+		this.album = album;
 	}
 
 	public Long getId()
@@ -40,5 +42,15 @@ public class Canzone
 	public void setDurata(float durata)
 	{
 		this.durata = durata;
+	}
+
+	public Album getAlbum()
+	{
+		return album;
+	}
+
+	public void setAlbum(Album album)
+	{
+		this.album = album;
 	}
 }

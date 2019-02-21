@@ -6,12 +6,14 @@ public class Album
 	private String titolo;
 	private int anno;
 	private String genere;
+	private Artista artista;
 
-	public Album(String titolo, int anno, String genere)
+	public Album(String titolo, int anno, String genere, Artista artista)
 	{
 		this.titolo = titolo;
 		this.anno = anno;
 		this.genere = genere;
+		this.artista = artista;
 	}
 	
 	public Long getId()
@@ -52,5 +54,15 @@ public class Album
 	public void setGenere(String genere)
 	{
 		this.genere = genere;
+	}
+
+	public Artista getArtista()
+	{
+		return artista;
+	}
+
+	public void setArtista(Artista artista)
+	{
+		this.artista = artista;
 	}
 }
