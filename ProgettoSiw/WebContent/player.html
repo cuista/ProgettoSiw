@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vinyl</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/player.css"></link>
+	<!-- ADATTAMENTO MOBILE -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body style="background-attachment: fixed;background-image: linear-gradient(#63211d, #121e3d 50%, #212c39);">
+
+<!---------------------------------------------------------------
+ CONTENUTO
+ !--------------------------------------------------------------->
+<section class="container-fluid container-full">
+	<div class="row no-padding">
+		<!-- Menu -->
+		<div class="sidebar no-padding col-md-12 col-lg-2">
+			<div class="row hide-brand-collapse padding-top">
+				<div class="col-10 offset-1">
+					<a href="#"><img src="img/brand/brand_white_vinyl.svg" height="40" class="d-inline-block align-top" alt="vinyl-brand"></a>
+				</div>
+			</div>
+			<div class="row padding-top">
+				<div class="col-10 offset-1 no-padding">
+					<div class="sidebar-button hide-sidebar-button" role="tablist" data-toggle="collapse" data-target="#side-menu-collapse" aria-expanded="false">
+						<img src="img/icons/menu.svg" class="d-inline-block align-top" alt="menu-icon" style="margin-right: 5px;" height="24">
+					</div>
+					<div class="collapse sidebar-collapse list-group" id="side-menu-collapse">
+						<a class="nav-link dark-link list-group-item active" id="tab-elem0" data-toggle="tab" role="tab" aria-controls="elem0" aria-selected="true" href="#elem0">
+							<img src="img/icons/home.svg" class="d-inline-block align-top" alt="home-icon" style="margin-right: 5px;" height="24">Home
+						</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem1" data-toggle="tab" role="tab" aria-controls="elem1" aria-selected="false" href="#elem1">
+							<img src="img/icons/playlist.svg" class="d-inline-block align-top" alt="playlist-icon" style="margin-right: 5px;" height="24">Playlist
+						</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem2" data-toggle="tab" role="tab" aria-controls="elem2" aria-selected="false" href="#elem2">
+							<img src="img/icons/search.svg" class="d-inline-block align-top" alt="search-icon" style="margin-right: 5px;" height="24">Cerca
+						</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem3" data-toggle="tab" role="tab" aria-controls="elem3" aria-selected="false" href="#elem3">Scarica l'app</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">Premium</a>
+					</div>
+					<hr style="background-color:gray;">
+					<a class="nav-link dark-link list-group-item" href="home.jsp">
+						<img src="img/icons/back-arrow.svg" class="d-inline-block align-top" alt="search-icon" style="margin-right: 5px;" height="24">Torna al sito
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- Pannelli Tab -->
+		<div class="contentbar col-md-12 offset-lg-2 col-lg-10">
+			<div class="tab-content" id="v-pills-tabContent">
+				<div class="tab-pane fade show active" id="elem0" role="tabpanel" aria-labelledby="tab-0">
+					<div class="tab-padding">
+					
+						<h2 class="text-subtitle text-white"> Scelti per te </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <a href="#"><img src="img/album/album0.jpg" class="card-img-top" alt="..."></a>
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Condivise dagli utenti </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Condivise da te </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="tab-pane fade" id="elem1" role="tabpanel" aria-labelledby="tab-1">
+					<div class="tab-padding">
+					
+						<h2 class="text-subtitle text-white"> Playlist </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="tab-pane fade" id="elem2" role="tabpanel" aria-labelledby="tab-2">
+					<div class="tab-padding">
+						<div style="padding-bottom:20px;">
+							<!-- FORM-CERCA -->
+							<form style="background-color: rgba(253, 253, 253, 0.1);">
+								<input class="form-control-search mr-sm-2" type="cerca" placeholder="Cerca" aria-label="Cerca">
+								<input type="submit" />
+							</form>
+							<!-- -->
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Canzoni </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Album </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Artisti </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<h2 class="text-subtitle text-white"> Playlist </h2>
+						<hr style="background-color: #fff;">
+						<div class="container-fluid" style="display: block;">
+							<div class="row">
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album0.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album1.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album2.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album3.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+									<div class="card">
+									  <img src="img/album/album4.jpg" class="card-img-top" alt="...">
+									  <div class="card-body">
+										<p class="card-title text-white">Card title</p>
+									  </div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div class="tab-pane fade" id="elem3" role="tabpanel" aria-labelledby="tab-3">
+					<div class="tab-padding">
+						<h2 class="text-subtitle text-white"> Installa App </h2>
+						<hr style="background-color: #fff;">
+						<div class="row">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="jumbotron border">
+									<h3 class="text-message text">L'app di Vinyl è arrivata!</h3>
+									<p> Ascolta la tua musica preferita ovunque, anche dal tuo smartphone.</p>
+									<hr class="my-4">
+									<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">SCARICA GRATUITAMENTE</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="elem4" role="tabpanel" aria-labelledby="tab-4">
+					<div class="tab-padding">
+						<h2 class="text-subtitle text-white"> Premium </h2>
+						<hr style="background-color: #fff;">
+						<div class="row">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="jumbotron border">
+									<h3 class="text-subtitle">Vinyl PREMIUM<br><span style="font-family: Helvetica;">€ 4,99</span><span class="text-small">/MESE</span></h3>
+									<p class="text-note">*Inizia la tua prova gratis di 30 giorni</p>
+									<hr class="my-4">
+									<ul class="lead" style="text-align: left;">
+										<li class="check-item">Ascolta qualsiasi brano</li>
+										<li class="check-item">Ascolta offline</li>
+										<li class="check-item">Niente pubblicità </li>
+										<li class="check-item">Skip illimitati</li>
+										<li class="check-item">Audio di qualità  elevata</li>
+									</ul>
+									<hr class="my-4">
+									<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+<!---------------------------------------------------------------
+ MUSIC PLAYER
+ !--------------------------------------------------------------->
+<section class="player-container">
+	<audio src="audio/bytheway.mp3"></audio>
+	<div class="player">
+		<img class="artwork" src="img/album/album3.jpg" alt="...">
+		<div class="info">
+			<div class="name"> By The Way </div>
+			<div class="singer"> Red Hot Chili Peppers </div>
+		</div>
+		<div class="buttons">
+			<div class="play-pause icon-play"></div>
+			<div class="next icon-next"></div>
+		</div>
+		<div class="progress">
+		
+		</div>
+	</div>
+</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+
+<script>
+$(function() {
+    $('form').each(function() {
+        $(this).find('input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+                this.form.submit();
+            }
+        });
+
+        $(this).find('input[type=submit]').hide();
+    });
+});
+
+//------MUSIC-PLAYER-----------
+$(function()
+{
+	var audio= $("audio")[0];
+	$(".play-pause").on("click", function()
+	{
+		if(audio.paused)
+		{
+			audio.play();
+			$(".play-pause").removeClass("icon-play");
+			$(".play-pause").addClass("icon-stop");
+		}
+		else
+		{
+			audio.pause();
+			$(".play-pause").removeClass("icon-stop");
+			$(".play-pause").addClass("icon-play");
+		}
+	});
+	
+	$('.next').on('click', function()
+	{
+	audio.src = "audio/mrbluesky.mp3";
+	audio.play();
+	$(".play-pause").removeClass("icon-play");
+	$(".play-pause").addClass("icon-stop");
+	});
+	
+	audio.ontimeupdate = function(){
+    $('.progress').css('width', audio.currentTime / audio.duration * 100 + '%')
+	};
+});
+</script>
+
+</body>
+</html>
