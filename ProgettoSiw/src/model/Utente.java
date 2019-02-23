@@ -9,7 +9,7 @@ public class Utente
 	private String email;
 	private String password;
 	private boolean premium;
-	private Set<Playlist> playlistCondivise;
+	private Set<Long> playlistCondivise;
 
 	public Utente(String username, String email, String password, boolean premium)
 	{
@@ -55,14 +55,19 @@ public class Utente
 		this.premium = premium;
 	}
 
-	public Set<Playlist> getPlaylistCondivise()
+	public Set<Long> getPlaylistCondivise()
 	{
 		return playlistCondivise;
 	}
-
-	public void addPlaylistCondivisa(Playlist playlist)
+	
+	public void setPlaylistCondivise(Set<Long> playlistCondivise)
 	{
-		this.playlistCondivise.add(playlist);
+		this.playlistCondivise=playlistCondivise;
+	}
+
+	public void addPlaylistCondivisa(Long id_playlist)
+	{
+		this.playlistCondivise.add(id_playlist);
 	}
 
 }

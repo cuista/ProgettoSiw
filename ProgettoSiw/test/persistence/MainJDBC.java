@@ -1,6 +1,7 @@
 package persistence;
 
 import java.util.List;
+import java.util.Set;
 
 import model.Canzone;
 import model.Playlist;
@@ -52,7 +53,7 @@ public class MainJDBC
 		Canzone canzone5=new Canzone("titolo5",(float) 4.16,album2);
 		
 		Playlist playlist1=new Playlist("playlist1",destiny);
-		Playlist playlist2=new Playlist("playlist2",chimera);
+		Playlist playlist2=new Playlist("playlist2",destiny);
 		Playlist playlist3=new Playlist("playlist3",banana33);
 
 		//SAVE UTENTE,ETC.. (RISPETTARE ORDINE DIPENDENZE)
@@ -90,7 +91,15 @@ public class MainJDBC
 		destiny.setPassword("wengweng");
 		destiny.setEmail("real_destiny@gmail.com");
 		destiny.setPremium(true);
+		destiny.addPlaylistCondivisa(playlist1.getId());
+		destiny.addPlaylistCondivisa(playlist2.getId());
 		utenteDao.update(destiny);
+		
+		//fragola86.addPlaylistCondivisa(playlist3.getId()); -->AVEVO FATTO DELETE PLAYLIST3
+		utenteDao.update(fragola86);
+		
+		banana33.addPlaylistCondivisa(playlist1.getId());
+		utenteDao.update(banana33);		
 		
 		canzone1.setTitolo("nuovoTitolo");
 		canzone1.setDurata((float) 1.50);
@@ -106,15 +115,15 @@ public class MainJDBC
 		artistaDao.update(artista3);
 		
 		playlist1.setNome("nuovaPlaylist1");
-		playlist1.addCanzone(canzone1);
-		playlist1.addCanzone(canzone3);
-		playlist1.addCanzone(canzone4);
+		playlist1.addCanzone(canzone1.getId());
+		//playlist1.addCanzone(canzone3.getId()); -->AVEVO FATTO DELETE CANZONE3
+		playlist1.addCanzone(canzone4.getId());
 		playlistDao.update(playlist1);
 		
 		playlist2.setNome("nuovaPlaylist2");
-		playlist2.addCanzone(canzone2);
-		playlist2.addCanzone(canzone4);
-		playlist2.addCanzone(canzone1);
+		playlist2.addCanzone(canzone2.getId());
+		playlist2.addCanzone(canzone4.getId());
+		playlist2.addCanzone(canzone1.getId());
 		playlistDao.update(playlist2);
 		
 		//NON SETTARE LE CHIAVI PRIMARIE, IL SUO UPDATE NEL DATABASE NON POTRA' ANDARE
@@ -165,11 +174,26 @@ public class MainJDBC
 		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA RACCOLTA>");
 		for(Playlist playlist : list_playlist)
 		{
+			Set<Canzone> set_canzoni= playlistDao.getCanzoniDiPlaylist(playlist);
 			System.out.println("PLAYLIST: id: " + playlist.getId() + " - nome: " + playlist.getNome());
 			System.out.print("	{");
-			for (Canzone canzone : playlist.getCanzoni())
+			for (Canzone canzone : set_canzoni)
 			{
 				System.out.print(canzone.getTitolo() + "; ");
+			}
+			System.out.println("}");
+		}
+		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");
+		
+		System.out.println("\n<TEST: DELETE, UPDATE, FINDALL - LISTA CONDIVISIONE>");
+		for(Utente utente: utenti)
+		{
+			Set<Playlist> set_playlistCondivise= utenteDao.getPlaylistCondiviseDaUtente(utente);
+			System.out.println("PLAYLIST-CONDIVISE: nome: " + utente.getUsername());
+			System.out.print("	{");
+			for (Playlist playlist : set_playlistCondivise)
+			{
+				System.out.print(playlist.getNome() + "; ");
 			}
 			System.out.println("}");
 		}

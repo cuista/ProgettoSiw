@@ -1,4 +1,6 @@
-//Animazione per alzare il jumbotron quando è nello stato di mouseover
+/**
+ * JQuery, animazione per alzare il jumbotron quando è nello stato di mouseover
+ */
 
 $(document).ready(function()
 {

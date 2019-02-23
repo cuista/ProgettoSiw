@@ -10,9 +10,9 @@ public class Playlist
 	private Long id;
 	private String nome;
 	private Utente utente;
-	private Set<Canzone> canzoni;
-	private List<Canzone> canzoniDaEliminare;
-	private List<Canzone> canzoniDaAggiungere;
+	private Set<Long> canzoni = new LinkedHashSet<>();
+	private List<Long> canzoniDaEliminare = new LinkedList<>();
+	private List<Long> canzoniDaAggiungere = new LinkedList<>();
 	
 	
 	public Playlist(String nome, Utente utente)
@@ -20,8 +20,8 @@ public class Playlist
 		this.setNome(nome);
 		this.setUtente(utente);
 		this.canzoni = new LinkedHashSet<>();
-		this.canzoniDaEliminare=new LinkedList<>();
-		this.canzoniDaAggiungere=new LinkedList<>();
+		this.canzoniDaEliminare = new LinkedList<>();
+		this.canzoniDaAggiungere = new LinkedList<>();
 	}
 
 	public Long getId()
@@ -54,29 +54,36 @@ public class Playlist
 		this.utente = utente;
 	}
 
-	public Set<Canzone> getCanzoni()
+	public Set<Long> getCanzoni()
 	{
 		return canzoni;
 	}
 	
-	public void removeCanzone(Canzone canzone)
+	public void setCanzoni(Set<Long> canzoni)
 	{
-		this.canzoniDaEliminare.add(canzone);
-		this.canzoni.add(canzone);
+		canzoniDaAggiungere.clear();
+		canzoniDaEliminare.clear();
+		this.canzoni=canzoni;
 	}
 	
-	public void addCanzone(Canzone canzone)
+	public void removeCanzone(Long id_canzone)
 	{
-		this.canzoniDaAggiungere.add(canzone);
-		this.canzoni.add(canzone);
+		this.canzoniDaEliminare.add(id_canzone);
+		this.canzoni.remove(id_canzone);
 	}
 	
-	public List<Canzone> getCanzoniDaEliminare()
+	public void addCanzone(Long id_canzone)
+	{
+		this.canzoniDaAggiungere.add(id_canzone);
+		this.canzoni.add(id_canzone);
+	}
+	
+	public List<Long> getCanzoniDaEliminare()
 	{
 		return canzoniDaEliminare;
 	}
 	
-	public List<Canzone> getCanzoniDaAggiungere()
+	public List<Long> getCanzoniDaAggiungere()
 	{
 		return canzoniDaAggiungere;
 	}

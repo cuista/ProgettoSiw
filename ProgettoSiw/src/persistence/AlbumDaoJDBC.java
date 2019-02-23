@@ -8,10 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Album;
-import model.Artista;
 import persistence.dao.AlbumDao;
 import persistence.dao.ArtistaDao;
-import persistence.dao.CanzoneDao;
 
 public class AlbumDaoJDBC implements AlbumDao
 {
