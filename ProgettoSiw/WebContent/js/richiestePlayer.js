@@ -6,7 +6,7 @@ $(document).ready(function()
 {
 	dammiTutteLeCanzoni();
 	dammiPlaylistUtente();
-	//dammiPlaylistCondiviseAltriUtenti();
+	dammiPlaylistCondiviseAltriUtenti();
 	dammiPlaylistCondiviseDaUtente();
 });
 

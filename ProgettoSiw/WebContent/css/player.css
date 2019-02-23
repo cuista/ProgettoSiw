@@ -22,6 +22,17 @@
 	}
 }
 
+html
+{
+	height:100%;
+}
+
+body
+{
+	height: 100%;
+	background-image: linear-gradient(#63211d, #121e3d 50%, #212c39);
+}
+
 .container-full
 {
 	position: relative;
@@ -93,6 +104,7 @@
 .tab-padding
 {
 	padding: 15px;
+	padding-bottom: 80px;
 }
 
 .text-white
