@@ -1,5 +1,5 @@
 /**
- * JQuery, richieste server per il player
+ * JQuery/ajax, richieste server per il player
  */
 
 $(document).ready(function() 
@@ -93,6 +93,7 @@ function dammiPlaylistCondiviseDaUtente()
 function riempiPlayer(list_canzoni)
 {
 	var divPartenza = $(".tutteCanzoni");
+	divPartenza.html("");
 	
 	for(var i=0; i<list_canzoni.length; i++)
 	{		
@@ -115,6 +116,7 @@ function riempiPlayer(list_canzoni)
 function riempiPlaylistUtente(list_playlistUtente)
 {
 	var divPartenza = $(".playlistUtente");
+	divPartenza.html("");
 	
 	for(var i=0; i<list_playlistUtente.length; i++)
 	{		
@@ -137,6 +139,7 @@ function riempiPlaylistUtente(list_playlistUtente)
 function riempiPlaylistCondiviseAltriUtenti(list_playlistCondAltriUtente)
 {
 	var divPartenza = $(".playlistCondiviseAltriUtenti");
+	divPartenza.html("");
 	
 	for(var i=0; i<list_playlistCondAltriUtente.length; i++)
 	{		
@@ -159,6 +162,7 @@ function riempiPlaylistCondiviseAltriUtenti(list_playlistCondAltriUtente)
 function riempiPlaylistCondiviseDaUtente(list_playlistCondDaUtente)
 {
 	var divPartenza = $(".playlistCondiviseDaUtente");
+	divPartenza.html("");
 	
 	for(var i=0; i<list_playlistCondDaUtente.length; i++)
 	{		
