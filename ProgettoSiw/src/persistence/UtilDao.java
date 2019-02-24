@@ -57,9 +57,9 @@ public class UtilDao
 		{
 
 			String create = "create SEQUENCE sequenza_id;"
-					+ "create table artista (\"id\" bigint primary key, nome varchar(255), paese varchar(255));"
-					+ "create table album (\"id\" bigint primary key, titolo varchar(255), anno int, genere varchar(255), artista bigint REFERENCES artista(\"id\"));"
-					+ "create table canzone (\"id\" bigint primary key, titolo varchar(255), durata float, album bigint REFERENCES album(\"id\"));"
+					+ "create table artista (\"id\" bigint primary key, nome varchar(255), paese varchar(255), immagine varchar(255));"
+					+ "create table album (\"id\" bigint primary key, titolo varchar(255), anno int, genere varchar(255), artista bigint REFERENCES artista(\"id\"), immagine varchar(255));"
+					+ "create table canzone (\"id\" bigint primary key, titolo varchar(255), durata float, album bigint REFERENCES album(\"id\"), audio varchar(255));"
 					+ "create table utente (\"username\" varchar(255) primary key, email varchar(255), password varchar(255), premium boolean);"
 					+ "create table playlist (\"id\" bigint primary key, nome varchar(255), utente varchar(255) REFERENCES utente(\"username\"));"
 					+ "create table raccolta (\"id\" bigint primary key, canzone bigint REFERENCES canzone(\"id\"), playlist bigint REFERENCES playlist(\"id\"));"
@@ -89,29 +89,7 @@ public class UtilDao
 
 	public void resetDatabase()
 	{
-
-		/*
-		 * Connection connection = dataSource.getConnection(); try { String delete =
-		 * "delete FROM user"; PreparedStatement statement =
-		 * connection.prepareStatement(delete);
-		 * 
-		 * statement.executeUpdate();
-		 * 
-		 * delete = "delete FROM object1"; statement =
-		 * connection.prepareStatement(delete);
-		 * 
-		 * delete = "delete FROM object2"; statement =
-		 * connection.prepareStatement(delete);
-		 * 
-		 * delete = "delete FROM object3"; statement =
-		 * connection.prepareStatement(delete);
-		 * 
-		 * statement.executeUpdate(); } catch (SQLException e) {
-		 * 
-		 * throw new PersistenceException(e.getMessage()); } finally { try {
-		 * connection.close(); } catch (SQLException e) {
-		 * 
-		 * throw new PersistenceException(e.getMessage()); } }
-		 */
+		this.dropDatabase();
+		this.createDatabase();
 	}
 }

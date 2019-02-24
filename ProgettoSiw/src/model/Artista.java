@@ -5,11 +5,13 @@ public class Artista
 	private Long id;
 	private String nome;
 	private String paese;
+	private String immagine;
 
-	public Artista(String nome, String paese)
+	public Artista(String nome, String paese, String immagine)
 	{
 		this.nome = nome;
 		this.paese = paese;
+		this.immagine = immagine;
 	}
 	
 	public Long getId()
@@ -40,5 +42,15 @@ public class Artista
 	public void setPaese(String paese)
 	{
 		this.paese = paese;
+	}
+
+	public String getImmagine()
+	{
+		return immagine;
+	}
+
+	public void setImmagine(String immagine)
+	{
+		this.immagine = immagine;
 	}
 }

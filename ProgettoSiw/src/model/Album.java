@@ -7,13 +7,15 @@ public class Album
 	private int anno;
 	private String genere;
 	private Artista artista;
+	private String immagine;
 
-	public Album(String titolo, int anno, String genere, Artista artista)
+	public Album(String titolo, int anno, String genere, Artista artista, String immagine)
 	{
 		this.titolo = titolo;
 		this.anno = anno;
 		this.genere = genere;
 		this.artista = artista;
+		this.immagine = immagine;
 	}
 	
 	public Long getId()
@@ -64,5 +66,15 @@ public class Album
 	public void setArtista(Artista artista)
 	{
 		this.artista = artista;
+	}
+
+	public String getImmagine()
+	{
+		return immagine;
+	}
+
+	public void setImmagine(String immagine)
+	{
+		this.immagine = immagine;
 	}
 }

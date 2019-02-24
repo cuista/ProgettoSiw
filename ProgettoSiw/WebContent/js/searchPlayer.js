@@ -8,15 +8,15 @@ $(document).ready(function()
 	$("#inputSearch").keyup(function()
 	{
 		//FUNZIONI AJAX
-		dammiCanzoni($("#inputSearch").val());
-	    dammiAlbum($("#inputSearch").val());
-	    dammiArtisti($("#inputSearch").val());
-	    dammiPlaylist($("#inputSearch").val());
+		ricercaCanzoni($("#inputSearch").val());
+	    ricercaAlbum($("#inputSearch").val());
+	    ricercaArtisti($("#inputSearch").val());
+	    ricercaPlaylist($("#inputSearch").val());
 	});
 });
 
 //RICHIESTE AJAX
-function dammiCanzoni(stringa_daCercare)
+function ricercaCanzoni(stringa_daCercare)
 {
 	var list_canzoni;
 	$.ajax({
@@ -37,7 +37,7 @@ function dammiCanzoni(stringa_daCercare)
 	});
 }
 
-function dammiAlbum(stringa_daCercare)
+function ricercaAlbum(stringa_daCercare)
 {
 	var list_album;
 	$.ajax({
@@ -58,7 +58,7 @@ function dammiAlbum(stringa_daCercare)
 	});
 }
 
-function dammiArtisti(stringa_daCercare)
+function ricercaArtisti(stringa_daCercare)
 {
 	var list_artisti;
 	$.ajax({
@@ -79,7 +79,7 @@ function dammiArtisti(stringa_daCercare)
 	});
 }
 
-function dammiPlaylist(stringa_daCercare)
+function ricercaPlaylist(stringa_daCercare)
 {
 	var list_playlist;
 	$.ajax({

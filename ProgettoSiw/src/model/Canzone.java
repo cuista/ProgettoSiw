@@ -6,12 +6,14 @@ public class Canzone
 	private String titolo;
 	private float durata;
 	private Album album;
+	private String audio;
 
-	public Canzone(String titolo, float durata, Album album)
+	public Canzone(String titolo, float durata, Album album, String audio)
 	{
 		this.titolo = titolo;
 		this.durata = durata;
 		this.album = album;
+		this.audio = audio;
 	}
 
 	public Long getId()
@@ -52,5 +54,15 @@ public class Canzone
 	public void setAlbum(Album album)
 	{
 		this.album = album;
+	}
+
+	public String getAudio()
+	{
+		return audio;
+	}
+
+	public void setAudio(String audio)
+	{
+		this.audio = audio;
 	}
 }

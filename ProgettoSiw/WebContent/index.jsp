@@ -157,16 +157,6 @@
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-sm-10 offset-sm-1">
-			<div class="jumbotron border">
-				<div id="messaggioAjax">
-				</div>
-				<button onclick="mostraMessaggio();">Clicca qui (Ajax)</button>
-			</div>
-		</div>
-	</div>
-	
 </section>
 
 <!---------------------------------------------------------------
@@ -203,22 +193,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
-
-<script>
-	function mostraMessaggio()
-	{
-	var invioServer = new XMLHttpRequest();
-	invioServer.onreadystatechange = function()
-		{		
-		if(this.readyState == 4 && this.status == 200)
-			{
-			document.getElementById("messaggioAjax").innerHTML = this.responseText;
-			}
-		};
-	invioServer.open("GET","risorsa.html",true); //risorsa.html è la risorsa che deve stare nel mio dominio
-	invioServer.send();
-	}
-</script>
 
 </body>
 </html>

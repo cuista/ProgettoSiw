@@ -38,19 +38,68 @@ public class MainJDBC
 		Utente fragola86= new Utente("fragola86", "fragola86@gmail.com", "pompei", true);
 		Utente banana33= new Utente("banana33", "banana33@gmail.com", "cetriolo", false);
 		
-		Artista artista1=new Artista("Red Hot Chili Peppers","USA");
-		Artista artista2=new Artista("Muse","United Kingdom");
-		Artista artista3=new Artista("Luci351 Battisti","Itttalia");
+		//Artista artistaDaEliminare=new Artista("Pino Scotto","Italia",null);
+		//Artista artistaDaAggiornare=new Artista("Luci351 Battisti","Itttalia","img/artista/luciobattisti.jpg");
 		
-		Album album1=new Album("album1",2002,"pop",artista3);
-		Album album2=new Album("album2",1998,"rock",artista1);
-		Album album3=new Album("album3",2002,"metal",artista2);
+		Artista redhotchilipeppers=new Artista("Red Hot Chili Peppers","USA","img/artista/redhotchilipeppers.jpg");
+		Artista muse=new Artista("Muse","United Kingdom","img/artista/muse.jpg");
+		Artista luciobattisti=new Artista("Lucio Battisti","Italia","img/artista/luciobattisti.jpg");
 		
-		Canzone canzone1=new Canzone("titolo1",(float) 5.32,album1);
-		Canzone canzone2=new Canzone("titolo2",(float) 3.44,album1);
-		Canzone canzone3=new Canzone("titolo3",(float) 3.25,album2);
-		Canzone canzone4=new Canzone("titolo4",(float) 4.21,album2);
-		Canzone canzone5=new Canzone("titolo5",(float) 4.16,album2);
+		//Album albumDaEliminare=new Album("album3",2002,"metal",muse,null);
+		//Album albumDaAggiornare=new Album("album1",1978,"pop",luciobattisti,null);
+		
+		Album album_californication=new Album("californication",1999,"rock",redhotchilipeppers,"img/album/californication.jpg");
+		Album album_bytheway=new Album("bytheway",2002,"rock",redhotchilipeppers,"img/album/bytheway.jpg");
+		Album album_showbiz=new Album("showbiz",1999,"rock",muse,"img/album/showbiz.jpg");
+		
+		//Canzone cannzoneDaAggiornare=new Canzone("titolo1",(float) 5.32,null);
+		//Canzone canzoneDaEliminare=new Canzone("titolo3",(float) 3.25,null);
+		Canzone aroundtheworld=new Canzone("Around The World",(float) 3.58,album_californication,"audio/californication/aroundtheworld.mp3");
+		Canzone paralleluniverse=new Canzone("Parallel Universe",(float) 4.30,album_californication,"audio/californication/paralleluniverse.mp3");
+		Canzone scartissue=new Canzone("Scar Tissue",(float) 3.37,album_californication,"audio/californication/scartissue.mp3");
+		Canzone otherside=new Canzone("Otherside",(float) 4.15,album_californication,"audio/californication/otherside.mp3");
+		Canzone getontop=new Canzone("Get On Top",(float) 3.18,album_californication,"audio/californication/getontop.mp3");
+		Canzone californication=new Canzone("Californication",(float) 5.21,album_californication,"audio/californication/californication.mp3");
+		Canzone easily=new Canzone("Easily",(float) 3.51,album_californication,"audio/californication/easily.mp3");
+		Canzone porcelain=new Canzone("Porcelain",(float) 2.43,album_californication,"audio/californication/porcelain.mp3");
+		Canzone emitremmus=new Canzone("Emit Remmus",(float) 4.00,album_californication,"audio/californication/emitremmus.mp3");
+		Canzone ilikedirt=new Canzone("I Like Dirt",(float) 2.37,album_californication,"audio/californication/ilikedirt.mp3");
+		Canzone thisvelvetglove=new Canzone("This Velvet Glove",(float) 3.45,album_californication,"audio/californication/thisvelvetglove.mp3");
+		Canzone savior=new Canzone("Savior",(float) 4.52,album_californication,"audio/californication/savior.mp3");
+		Canzone purplestain=new Canzone("Purple Stain",(float) 4.12,album_californication,"audio/californication/purplestain.mp3");
+		Canzone rightontime=new Canzone("Right On Time",(float) 1.52,album_californication,"audio/californication/rightontime.mp3");
+		Canzone roadtrippin=new Canzone("Road Trippin",(float) 3.25,album_californication,"audio/californication/roadtrippin.mp3");
+		
+		Canzone bytheway=new Canzone("By The Way",(float) 3.37,album_bytheway,"audio/bytheway/bytheway.mp3");
+		Canzone universallyspeaking=new Canzone("Universally Speaking",(float) 4.19,album_bytheway,"audio/bytheway/universallyspeaking.mp3");
+		Canzone thisistheplace=new Canzone("This Is The Place",(float) 4.17,album_bytheway,"audio/bytheway/thisistheplace.mp3");
+		Canzone dosed=new Canzone("Dosed",(float) 5.12,album_bytheway,"audio/bytheway/dosed.mp3");
+		Canzone dontforgetme=new Canzone("Dont Forget Me",(float) 4.37,album_bytheway,"audio/bytheway/dontforgetme.mp3");
+		Canzone thezephyrsong=new Canzone("The Zephyr Song",(float) 3.52,album_bytheway,"audio/bytheway/thezephyrsong.mp3");
+		Canzone cantstop=new Canzone("Cant Stop",(float) 4.29,album_bytheway,"audio/bytheway/cantstop.mp3");
+		Canzone icoulddieforyou=new Canzone("I Could Die For You",(float) 3.13,album_bytheway,"audio/bytheway/icoulddieforyou.mp3");
+		Canzone midnight=new Canzone("Midnight",(float) 4.55,album_bytheway,"audio/bytheway/midnight.mp3");
+		Canzone throwawayyourtelevision=new Canzone("Throw Away Your Television",(float) 3.44,album_bytheway,"audio/bytheway/throwawayyourtelevision.mp3");
+		Canzone cabron=new Canzone("Cabron",(float) 3.38,album_bytheway,"audio/bytheway/cabron.mp3");
+		Canzone tear=new Canzone("Tear",(float) 5.17,album_bytheway,"audio/bytheway/tear.mp3");
+		Canzone onmercury=new Canzone("On Mercury",(float) 3.28,album_bytheway,"audio/bytheway/onmercury.mp3");
+		Canzone minorthing=new Canzone("Minor Thing",(float) 3.37,album_bytheway,"audio/bytheway/minorthing.mp3");
+		Canzone warmtape=new Canzone("Warm Tape",(float) 4.16,album_bytheway,"audio/bytheway/warmtape.mp3");
+		Canzone venicequeen=new Canzone("Venice Queen",(float) 6.08,album_bytheway,"audio/bytheway/venicequeen.mp3");
+		
+		Canzone sunburn=new Canzone("Sunburn",(float) 3.53,album_showbiz,"audio/showbiz/sunburn.mp3");
+		Canzone musclemuseum=new Canzone("Muscle Museum",(float) 4.22,album_showbiz,"audio/showbiz/musclemuseum.mp3");
+		Canzone fillip=new Canzone("Fillip",(float) 4.01,album_showbiz,"audio/showbiz/fillip.mp3");
+		Canzone fallingdown=new Canzone("Falling Down",(float) 4.33,album_showbiz,"audio/showbiz/fallingdown.mp3");
+		Canzone cave=new Canzone("Cave",(float) 4.46,album_showbiz,"audio/showbiz/cave.mp3");
+		Canzone showbiz=new Canzone("Showbiz",(float) 5.17,album_showbiz,"audio/showbiz/showbiz.mp3");
+		Canzone unintended=new Canzone("Unintended",(float) 3.57,album_showbiz,"audio/showbiz/unintended.mp3");
+		Canzone uno=new Canzone("Uno",(float) 3.38,album_showbiz,"audio/showbiz/uno.mp3");
+		Canzone sober=new Canzone("Sober",(float) 4.04,album_showbiz,"audio/showbiz/sober.mp3");
+		Canzone escape=new Canzone("Escape",(float) 3.31,album_showbiz,"audio/showbiz/escape.mp3");
+		Canzone overdue=new Canzone("Overdue",(float) 2.26,album_showbiz,"audio/showbiz/overdue.mp3");
+		Canzone hatethisandillloveyou=new Canzone("Hate This And Ill Love You",(float) 5.09,album_showbiz,"audio/showbiz/hatethisandillloveyou.mp3");
+		Canzone spiralstatic=new Canzone("Spiral Static",(float) 4.43,album_showbiz,"audio/showbiz/spiralstatic.mp3");
 		
 		Playlist playlist1=new Playlist("playlist1",destiny);
 		Playlist playlist2=new Playlist("playlist2",destiny);
@@ -62,19 +111,68 @@ public class MainJDBC
 		utenteDao.save(fragola86);
 		utenteDao.save(banana33);
 		
-		artistaDao.save(artista1);
-		artistaDao.save(artista2);
-		artistaDao.save(artista3);
 		
-		albumDao.save(album1);
-		albumDao.save(album2);
-		albumDao.save(album3);
+		//artistaDao.save(artistaDaEliminare);
+		//artistaDao.save(artistaDaAggiornare);	
+		artistaDao.save(redhotchilipeppers);
+		artistaDao.save(muse);
+		artistaDao.save(luciobattisti);
 		
-		canzoneDao.save(canzone1);
-		canzoneDao.save(canzone2);
-		canzoneDao.save(canzone3);
-		canzoneDao.save(canzone4);
-		canzoneDao.save(canzone5);
+		
+		//albumDao.save(albumDaEliminare);
+		//albumDao.save(albumDaAggiornare);
+		albumDao.save(album_californication);
+		albumDao.save(album_bytheway);
+		albumDao.save(album_showbiz);
+		
+		//canzoneDao.save(cannzoneDaAggiornare);
+		//canzoneDao.save(canzoneDaEliminare);
+		canzoneDao.save(aroundtheworld);
+		canzoneDao.save(paralleluniverse);
+		canzoneDao.save(scartissue);
+		canzoneDao.save(otherside);
+		canzoneDao.save(getontop);
+		canzoneDao.save(californication);
+		canzoneDao.save(easily);
+		canzoneDao.save(porcelain);
+		canzoneDao.save(emitremmus);
+		canzoneDao.save(ilikedirt);
+		canzoneDao.save(thisvelvetglove);
+		canzoneDao.save(savior);
+		canzoneDao.save(purplestain);
+		canzoneDao.save(rightontime);
+		canzoneDao.save(roadtrippin);
+		
+		canzoneDao.save(bytheway);
+		canzoneDao.save(universallyspeaking);
+		canzoneDao.save(thisistheplace);
+		canzoneDao.save(dosed);
+		canzoneDao.save(dontforgetme);
+		canzoneDao.save(thezephyrsong);
+		canzoneDao.save(cantstop);
+		canzoneDao.save(icoulddieforyou);
+		canzoneDao.save(midnight);
+		canzoneDao.save(throwawayyourtelevision);
+		canzoneDao.save(cabron);
+		canzoneDao.save(tear);
+		canzoneDao.save(onmercury);
+		canzoneDao.save(minorthing);
+		canzoneDao.save(warmtape);
+		canzoneDao.save(venicequeen);
+		
+		canzoneDao.save(sunburn);
+		canzoneDao.save(musclemuseum);
+		canzoneDao.save(fillip);
+		canzoneDao.save(fallingdown);
+		canzoneDao.save(cave);
+		canzoneDao.save(showbiz);
+		canzoneDao.save(unintended);
+		canzoneDao.save(uno);
+		canzoneDao.save(sober);
+		canzoneDao.save(escape);
+		canzoneDao.save(overdue);
+		canzoneDao.save(hatethisandillloveyou);
+		canzoneDao.save(spiralstatic);
 		
 		playlistDao.save(playlist1);
 		playlistDao.save(playlist2);
@@ -82,9 +180,9 @@ public class MainJDBC
 		
 		//DELETE
 		utenteDao.delete(chimera);
-		canzoneDao.delete(canzone3);
-		albumDao.delete(album3);
-		artistaDao.delete(artista2);
+		//canzoneDao.delete(canzoneDaEliminare);
+		//albumDao.delete(albumDaEliminare);
+		//artistaDao.delete(artistaDaEliminare);
 		playlistDao.delete(playlist3);
 		
 		//UPDATE
@@ -99,31 +197,28 @@ public class MainJDBC
 		utenteDao.update(fragola86);
 		
 		banana33.addPlaylistCondivisa(playlist1.getId());
-		utenteDao.update(banana33);		
+		utenteDao.update(banana33);
 		
-		canzone1.setTitolo("nuovoTitolo");
-		canzone1.setDurata((float) 1.50);
-		canzoneDao.update(canzone1);
+//		cannzoneDaAggiornare.setTitolo("nuovoTitolo");
+//		cannzoneDaAggiornare.setDurata((float) 1.50);
+//		canzoneDao.update(cannzoneDaAggiornare);
 		
-		album1.setTitolo("NuovoTitoloAlbum1");
-		album1.setAnno(2019);
-		album1.setGenere("electro");
-		albumDao.update(album1);
+//		albumDaAggiornare.setTitolo("NuovoTitoloAlbum1");
+//		albumDaAggiornare.setAnno(2019);
+//		albumDaAggiornare.setGenere("electro");
+//		albumDao.update(albumDaAggiornare);
 		
-		artista3.setNome("Lucio Battisti");
-		artista3.setPaese("Italia");
-		artistaDao.update(artista3);
+//		artistaDaAggiornare.setNome("Lucio Battisti");
+//		artistaDaAggiornare.setPaese("Italia");
+//		artistaDao.update(artistaDaAggiornare);
 		
 		playlist1.setNome("nuovaPlaylist1");
-		playlist1.addCanzone(canzone1.getId());
-		//playlist1.addCanzone(canzone3.getId()); -->AVEVO FATTO DELETE CANZONE3
-		playlist1.addCanzone(canzone4.getId());
+		playlist1.addCanzone(scartissue.getId());
 		playlistDao.update(playlist1);
 		
 		playlist2.setNome("nuovaPlaylist2");
-		playlist2.addCanzone(canzone2.getId());
-		playlist2.addCanzone(canzone4.getId());
-		playlist2.addCanzone(canzone1.getId());
+		playlist2.addCanzone(aroundtheworld.getId());
+		playlist2.addCanzone(paralleluniverse.getId());
 		playlistDao.update(playlist2);
 		
 		//NON SETTARE LE CHIAVI PRIMARIE, IL SUO UPDATE NEL DATABASE NON POTRA' ANDARE
@@ -151,7 +246,7 @@ public class MainJDBC
 		List<Album> list_album= albumDao.findAll();
 		for (Album album : list_album)
 		{
-			System.out.println("id: " + album.getId() + " - titolo: " + album.getTitolo() + " - anno: " + album.getAnno() + " - genere: " + album.getGenere() + " - artista: " + album.getArtista().getNome());
+			System.out.println("id: " + album.getId() + " - titolo: " + album.getTitolo() + " - anno: " + album.getAnno() + " - genere: " + album.getGenere() + " - artista: " + album.getArtista().getNome() + " - immagine: " + album.getImmagine());
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");	
 		
@@ -159,7 +254,7 @@ public class MainJDBC
 		List<Artista> list_artista= artistaDao.findAll();
 		for (Artista artista : list_artista)
 		{
-			System.out.println("id: " + artista.getId() + " - nome: " + artista.getNome() + " - paese: " + artista.getPaese());
+			System.out.println("id: " + artista.getId() + " - nome: " + artista.getNome() + " - paese: " + artista.getPaese() + " - immagine: " + artista.getImmagine());
 		}
 		System.out.println("<ENDTEST: DELETE, UPDATE, FINDALL>\n");
 		

@@ -28,12 +28,13 @@ public class CanzoneDaoJDBC implements CanzoneDao
 		{
 			Long id = IdBroker.getId(connection);
 			canzone.setId(id);
-			String insert = "insert into canzone(id, titolo, durata, album) values (?,?,?,?)";
+			String insert = "insert into canzone(id, titolo, durata, album, audio) values (?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, canzone.getId());
 			statement.setString(2, canzone.getTitolo());
 			statement.setFloat(3, canzone.getDurata());
 			statement.setLong(4, canzone.getAlbum().getId());
+			statement.setString(5, canzone.getAudio());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -73,7 +74,7 @@ public class CanzoneDaoJDBC implements CanzoneDao
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"),albumDao.findByPrimaryKey(result.getLong("album")));
+				canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"),albumDao.findByPrimaryKey(result.getLong("album")),result.getString("audio"));
 				canzone.setId(id);
 			}
 		} catch (SQLException e)
@@ -114,7 +115,7 @@ public class CanzoneDaoJDBC implements CanzoneDao
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Canzone canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"),albumDao.findByPrimaryKey(result.getLong("album")));
+				Canzone canzone = new Canzone(result.getString("titolo"),result.getFloat("durata"),albumDao.findByPrimaryKey(result.getLong("album")),result.getString("audio"));
 				canzone.setId(result.getLong("id"));
 				
 				list_canzone.add(canzone);
@@ -150,12 +151,13 @@ public class CanzoneDaoJDBC implements CanzoneDao
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String update = "update canzone SET titolo = ?, durata = ?, album = ? WHERE id = ?";
+			String update = "update canzone SET titolo = ?, durata = ?, album = ? audio = ? WHERE id = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, canzone.getTitolo());
 			statement.setFloat(2, canzone.getDurata());	
 			statement.setLong(3, canzone.getAlbum().getId());
-			statement.setLong(4, canzone.getId());
+			statement.setString(4, canzone.getAudio());
+			statement.setLong(5, canzone.getId());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{

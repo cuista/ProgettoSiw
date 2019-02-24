@@ -28,13 +28,14 @@ public class AlbumDaoJDBC implements AlbumDao
 		{
 			Long id = IdBroker.getId(connection);
 			album.setId(id);
-			String insert = "insert into album(id, titolo, anno, genere, artista) values (?,?,?,?,?)";
+			String insert = "insert into album(id, titolo, anno, genere, artista, immagine) values (?,?,?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, album.getId());
 			statement.setString(2, album.getTitolo());
 			statement.setInt(3, album.getAnno());
 			statement.setString(4, album.getGenere());
 			statement.setLong(5, album.getArtista().getId());
+			statement.setString(6, album.getImmagine());
 
 			statement.executeUpdate();
 		} catch (SQLException e)
@@ -75,7 +76,7 @@ public class AlbumDaoJDBC implements AlbumDao
 			ResultSet result = statement.executeQuery();
 			if (result.next())
 			{
-				album = new Album(result.getString("titolo"),result.getInt("anno"),result.getString("genere"),artistaDao.findByPrimaryKey(result.getLong("artista")));
+				album = new Album(result.getString("titolo"),result.getInt("anno"),result.getString("genere"),artistaDao.findByPrimaryKey(result.getLong("artista")),result.getString("immagine"));
 				album.setId(id);
 			}
 		} catch (SQLException e)
@@ -116,7 +117,7 @@ public class AlbumDaoJDBC implements AlbumDao
 			ResultSet result = statement.executeQuery();
 			while (result.next())
 			{
-				Album album = new Album(result.getString("titolo"),result.getInt("anno"),result.getString("genere"),artistaDao.findByPrimaryKey(result.getLong("artista")));
+				Album album = new Album(result.getString("titolo"),result.getInt("anno"),result.getString("genere"),artistaDao.findByPrimaryKey(result.getLong("artista")),result.getString("immagine"));
 				album.setId(result.getLong("id"));
 
 				list_album.add(album);
@@ -152,13 +153,14 @@ public class AlbumDaoJDBC implements AlbumDao
 		Connection connection = this.dataSource.getConnection();
 		try
 		{
-			String update = "update album SET titolo = ?, anno = ?, genere = ?, artista = ? WHERE id = ?";
+			String update = "update album SET titolo = ?, anno = ?, genere = ?, artista = ?, immagine = ? WHERE id = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setString(1, album.getTitolo());
 			statement.setInt(2, album.getAnno());
 			statement.setString(3, album.getGenere());
 			statement.setLong(4, album.getArtista().getId());
 			statement.setLong(5, album.getId());
+			statement.setString(6, album.getImmagine());
 			statement.executeUpdate();
 		} catch (SQLException e)
 		{
@@ -212,20 +214,6 @@ public class AlbumDaoJDBC implements AlbumDao
 			}
 		}
 	}
-	
-//	private void deleteCanzoniDiAlbum(Album album, Connection connection) throws SQLException 
-//	{	
-//		CanzoneDao canzoneDao=DatabaseManager.getInstance().getDaoFactory().getCanzoneDAO();
-//		String canzoneToDelete = "select id FROM canzone WHERE album = ? ";
-//		PreparedStatement statement = connection.prepareStatement(canzoneToDelete);
-//		statement.setLong(1, album.getId());
-//		ResultSet result = statement.executeQuery();
-//		while(result.next())
-//		{
-//			canzoneDao.delete(canzoneDao.findByPrimaryKey(result.getLong("id")));
-//			statement.executeUpdate();
-//		}
-//	}
 	
 	private void removeForeignKeyDaCanzone(Album album, Connection connection) throws SQLException 
 	{	

@@ -166,7 +166,7 @@ public class PlaylistDaoJDBC implements PlaylistDao
 				ResultSet result = statement.executeQuery();
 				if(result.next())
 				{
-					Canzone canzone = new Canzone(result.getString("titolo"), result.getFloat("durata"), albumDao.findByPrimaryKey(result.getLong("album")));
+					Canzone canzone = new Canzone(result.getString("titolo"), result.getFloat("durata"), albumDao.findByPrimaryKey(result.getLong("album")),result.getString("audio"));
 					canzone.setId(result.getLong("id"));
 					canzoni.add(canzone);
 				}
