@@ -84,7 +84,18 @@
 		<hr>
 		  <div class="row">
     		<div class="col-sm-12 col-md-6 offset-md-3">
-				<button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill">ACCEDI CON FACEBOOK</button>
+    		
+    			<!-- FB LOGIN BUTTON -->
+				<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">
+					<img class="product img-responsive center-block" id="prova" src="img/login-with-facebook.png" />
+				</a>
+				<div id="facebook-result"></div>
+				<!-- Display user profile data -->
+				<div id="userData"></div>
+				<!-- <!-- Display login status -->
+				<div id="status"></div>
+				<!-- --------end-FB-------------- -->
+				
 				<p class="text-small"><span style="color: #919496">Se clicchi su "Accedi con Facebook" e non sei un utente Vinyl, sarai registrato su Vinyl e accetterai i relativi <a href="#">Termini e condizioni</a>.</span></p>
 				<hr>
 				<h1 class="text-small"><span style="font-weight: 600;">Accedi con il tuo indirizzo email.</span></h1>
