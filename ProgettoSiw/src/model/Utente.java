@@ -5,6 +5,7 @@ import java.util.Set;
 
 public class Utente
 {
+	
 	private String username;
 	private String email;
 	private String password;
@@ -18,6 +19,11 @@ public class Utente
 		this.password = password;
 		this.setPremium(premium);
 		this.playlistCondivise = new HashSet<>();
+	}
+	
+	public void setUsername(String username)
+	{
+		this.username = username;
 	}
 
 	public String getUsername()
@@ -46,6 +52,11 @@ public class Utente
 	}
 
 	public boolean isPremium()
+	{
+		return premium;
+	}
+	
+	public boolean getPremium()
 	{
 		return premium;
 	}

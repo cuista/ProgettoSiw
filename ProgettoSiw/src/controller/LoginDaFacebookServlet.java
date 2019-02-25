@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import model.Utente;
 import persistence.DatabaseManager;
 import persistence.dao.UtenteDao;
 
 @WebServlet("/LoginDaFacebookServlet")
-public class LoginDaFacebookServlet extends HttpServlet 
+public class LoginDaFacebookServlet extends HttpServlet
 {
 
 	/**
@@ -37,19 +35,25 @@ public class LoginDaFacebookServlet extends HttpServlet
 		UtenteDao utenteDao= DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		
 		String nome=new String();
-		
+	
 		if (request.getParameterNames().hasMoreElements()) 
 		{
-			String jsonString = request.getParameter("jsonUtenteFacebook");
+			String jsonString=request.getParameter("jsonUtenteFacebook").toString();
+
 			if (jsonString != null) 
 			{
-				ObjectMapper mapper = new ObjectMapper();
-				Utente utente1 = mapper.readValue(jsonString, Utente.class);
+				//parserizzo le informazioni di Utente
+				String infoDaStringa[]=jsonString.split(":\"");
+				String username=infoDaStringa[1].split("\"")[0];
+				String email=infoDaStringa[2].split("\"")[0];
+				String password=infoDaStringa[3].split("\"")[0];
+				boolean premium=Boolean.parseBoolean(infoDaStringa[4].split("\"")[0]);
+				
+				//creo utente parserizzato
+				Utente utente1 = new Utente(username, email, password, premium);
 				HttpSession httpSession = request.getSession();
 				
 				List<Utente> utenti=utenteDao.findAll();
-				
-				System.out.println(utente1.toString());
 				
 				boolean trovato=false,uguale=false;
 				
