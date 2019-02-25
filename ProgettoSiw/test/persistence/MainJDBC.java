@@ -101,9 +101,12 @@ public class MainJDBC
 		Canzone hatethisandillloveyou=new Canzone("Hate This And Ill Love You",(float) 5.09,album_showbiz,"audio/showbiz/hatethisandillloveyou.mp3");
 		Canzone spiralstatic=new Canzone("Spiral Static",(float) 4.43,album_showbiz,"audio/showbiz/spiralstatic.mp3");
 		
-		Playlist playlist1=new Playlist("playlist1",destiny);
-		Playlist playlist2=new Playlist("playlist2",destiny);
-		Playlist playlist3=new Playlist("playlist3",banana33);
+		//Playlist playlistDaEliminare=new Playlist("playlist2",null);
+		Playlist playlist1=new Playlist("rock preferite",destiny);
+		Playlist playlist2=new Playlist("playlist buonanotte",destiny);
+		Playlist playlist3=new Playlist("canzoni varie",banana33);
+		Playlist playlist4=new Playlist("al mattino",fragola86);
+		Playlist playlist5=new Playlist("per festa",fragola86);
 
 		//SAVE UTENTE,ETC.. (RISPETTARE ORDINE DIPENDENZE)
 		utenteDao.save(destiny);
@@ -174,16 +177,19 @@ public class MainJDBC
 		canzoneDao.save(hatethisandillloveyou);
 		canzoneDao.save(spiralstatic);
 		
+		//playlistDap.save(playlistDaEliminare);
 		playlistDao.save(playlist1);
 		playlistDao.save(playlist2);
 		playlistDao.save(playlist3);
+		playlistDao.save(playlist4);
+		playlistDao.save(playlist5);
 		
 		//DELETE
 		utenteDao.delete(chimera);
 		//canzoneDao.delete(canzoneDaEliminare);
 		//albumDao.delete(albumDaEliminare);
 		//artistaDao.delete(artistaDaEliminare);
-		playlistDao.delete(playlist3);
+		//playlistDao.delete(playlistDaEliminare);
 		
 		//UPDATE
 		destiny.setPassword("wengweng");
@@ -194,9 +200,11 @@ public class MainJDBC
 		utenteDao.update(destiny);
 		
 		//fragola86.addPlaylistCondivisa(playlist3.getId()); -->AVEVO FATTO DELETE PLAYLIST3
+		fragola86.addPlaylistCondivisa(playlist4.getId());
+		fragola86.addPlaylistCondivisa(playlist5.getId());
 		utenteDao.update(fragola86);
 		
-		banana33.addPlaylistCondivisa(playlist1.getId());
+		banana33.addPlaylistCondivisa(playlist3.getId());
 		utenteDao.update(banana33);
 		
 //		cannzoneDaAggiornare.setTitolo("nuovoTitolo");
@@ -212,7 +220,7 @@ public class MainJDBC
 //		artistaDaAggiornare.setPaese("Italia");
 //		artistaDao.update(artistaDaAggiornare);
 		
-		playlist1.setNome("nuovaPlaylist1");
+		playlist1.setNome("rock preferite");
 		playlist1.addCanzone(scartissue.getId());
 		playlist1.addCanzone(sunburn.getId());
 		playlist1.addCanzone(universallyspeaking.getId());
@@ -221,14 +229,35 @@ public class MainJDBC
 		playlist1.addCanzone(hatethisandillloveyou.getId());
 		playlistDao.update(playlist1);
 		
-		playlist2.setNome("nuovaPlaylist2");
-		playlist2.addCanzone(aroundtheworld.getId());
-		playlist2.addCanzone(showbiz.getId());
+		playlist2.addCanzone(thezephyrsong.getId());
+		playlist2.addCanzone(bytheway.getId());
+		playlist2.addCanzone(minorthing.getId());
 		playlist2.addCanzone(venicequeen.getId());
-		playlist2.addCanzone(unintended.getId());
-		playlist2.addCanzone(fillip.getId());
-		playlist2.addCanzone(paralleluniverse.getId());
+		playlist2.addCanzone(icoulddieforyou.getId());
+		playlist2.addCanzone(overdue.getId());
 		playlistDao.update(playlist2);
+		
+		playlist3.addCanzone(tear.getId());
+		playlist3.addCanzone(getontop.getId());
+		playlist3.addCanzone(dontforgetme.getId());
+		playlist3.addCanzone(otherside.getId());
+		playlist3.addCanzone(sober.getId());
+		playlist3.addCanzone(spiralstatic.getId());
+		playlistDao.update(playlist3);
+		
+		playlist4.addCanzone(rightontime.getId());
+		playlist4.addCanzone(fallingdown.getId());
+		playlist4.addCanzone(warmtape.getId());
+		playlist4.addCanzone(sober.getId());
+		playlistDao.update(playlist4);
+		
+		playlist5.addCanzone(aroundtheworld.getId());
+		playlist5.addCanzone(showbiz.getId());
+		playlist5.addCanzone(venicequeen.getId());
+		playlist5.addCanzone(unintended.getId());
+		playlist5.addCanzone(fillip.getId());
+		playlist5.addCanzone(paralleluniverse.getId());
+		playlistDao.update(playlist5);
 		
 		//NON SETTARE LE CHIAVI PRIMARIE, IL SUO UPDATE NEL DATABASE NON POTRA' ANDARE
 		//L'INTERROGAZIONE DELLA QUERY DELL'UPDATE SI BASA SULLA CHIAVE PRIMARIA!

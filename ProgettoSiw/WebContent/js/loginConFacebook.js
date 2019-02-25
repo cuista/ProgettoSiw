@@ -50,9 +50,7 @@ function salvaDatiInDB(response)
 	},
 	function(response) {
 		
-		var username=(response.first_name+response.last_name);
-		
-		var stringa_vuota="";
+		var username=(response.first_name + " " + response.last_name);
 		
 		var jsonUtente = {
 			username: username,

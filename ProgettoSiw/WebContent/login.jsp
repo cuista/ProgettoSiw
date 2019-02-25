@@ -107,11 +107,7 @@
 				</div>
 				<div class="form-group form-check">
 					<div class="row justify-content-between">
-    					<div class="col-sm-12 col-md-5">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">Ricordami</label>
-						</div>
-						<div class="col-sm-12 col-md-5">
+						<div class="col-sm-12 offset-md-3 col-md-6">
 							<button type="submit" class="btn btn-success rounded-pill">ACCEDI</button>
 						</div>
 					</div>

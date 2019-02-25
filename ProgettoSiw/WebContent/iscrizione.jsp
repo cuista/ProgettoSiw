@@ -84,7 +84,18 @@
 		<hr>
 		  <div class="row">
     		<div class="col-sm-12 col-md-6 offset-md-3">
-				<button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill">ISCRIVITI CON FACEBOOK</button>
+				
+				<!-- FB LOGIN BUTTON -->
+				<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">
+					<img class="product img-responsive center-block" id="prova" src="img/login-with-facebook.png" />
+				</a>
+				<div id="facebook-result"></div>
+				<!-- Display user profile data -->
+				<div id="userData"></div>
+				<!-- <!-- Display login status -->
+				<div id="status"></div>
+				<!-- --------end-FB-------------- -->
+				
 					<p class="text-small"><span style="color: #919496">Se clicchi su "Iscriviti con Facebook" sarai registrato su Vinyl e accetterai i relativi <a href="#">Termini e condizioni</a>.</span></p>
 				<hr>
 				<h1 class="text-small"><span style="font-weight: 600;">Iscriviti con il tuo indirizzo email.</span></h1>
@@ -95,8 +106,13 @@
 				<div class="form-group"><input name="username" type="text" class="form-control" placeholder="Username"></div>
 				<!-- -->
 				<div class="form-group form-check">
-						<input type="checkbox" class="form-check-input" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Accetto i <a href="#">Termini e condizioni</a> di Vinyl. </label>
+					<input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheckTerminiCondizioni" required>
+					<label class="form-check-label" for="invalidCheck3">
+					Accetto i <a href="#">Termini e condizioni</a> di Vinyl.
+					</label>
+					<div class="invalid-feedback">
+					Devi accettare prima di iscriverti.
+					</div>
 				</div>
 				<button name="inviaIscrizione" type="submit" class="btn btn-success rounded-pill">ISCRIVITI</button>
 				<hr>
@@ -139,6 +155,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+<script type="text/javascript" src="js/loginConFacebook.js"></script>
 
 
 </body>
