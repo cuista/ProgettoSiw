@@ -16,10 +16,6 @@ import model.Utente;
 import persistence.DatabaseManager;
 import persistence.dao.UtenteDao;
 
-
-/**
- * Servlet implementation class RegistraUtente
- */
 @WebServlet("/IscrizioneUtente")
 public class IscrizioneUtente extends HttpServlet
 {
