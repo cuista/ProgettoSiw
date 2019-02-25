@@ -10,6 +10,7 @@ $(document).ready(function()
 	dammiPlaylistCondiviseDaUtente();
 });
 
+//RICHIESTE AJAX
 function dammiTutteLeCanzoni()
 {
 	var list_canzoni;
@@ -90,6 +91,7 @@ function dammiPlaylistCondiviseDaUtente()
 	});
 }
 
+//RIEMPIMENTO HTML CON RISULTATI
 function riempiPlayer(list_canzoni)
 {
 	var divPartenza = $(".tutteCanzoni");
@@ -99,12 +101,12 @@ function riempiPlayer(list_canzoni)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoneDaId(" + list_canzoni[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
-		.attr("src", "img/album/album4.jpg")
+		.attr("src", list_canzoni[i].album.immagine)
 		.attr("alt", "immagine canzone")
-		.addClass("card-img-top")
+		.addClass("card-img-top shape-vinyl")
 		.appendTo(divCard);
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
@@ -122,7 +124,7 @@ function riempiPlaylistUtente(list_playlistUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
@@ -145,7 +147,7 @@ function riempiPlaylistCondiviseAltriUtenti(list_playlistCondAltriUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistCondAltriUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
@@ -168,7 +170,7 @@ function riempiPlaylistCondiviseDaUtente(list_playlistCondDaUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistCondDaUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
