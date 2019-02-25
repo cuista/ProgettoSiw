@@ -42,7 +42,7 @@
 			<!-- PLAYER SE USER LOGGATO -->
 			<c:if test="${not empty user.username}">
 			<li class="nav-item">
-			<a class="nav-link active" href="player.html">Player Web<span class="sr-only">(current)</span></a>
+			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
 		  	</li>
 			</c:if>
 		  </li>

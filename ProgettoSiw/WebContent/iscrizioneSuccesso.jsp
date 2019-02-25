@@ -124,7 +124,10 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<c:if test="${empty user.username}"><script>$("html").load("ritornaHome.html");</script></c:if>
+<c:if test="${not empty user.username}">
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+</c:if>
 
 
 </body>

@@ -1,3 +1,6 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -255,11 +258,12 @@
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/accessoAutorizzatoSoloUtenti.js"></script>
+<c:if test="${empty user.username}"><script>$("html").load("ritornaHome.html");</script></c:if>
+<c:if test="${not empty user.username}">
 <script type="text/javascript" src="js/eventiPlayer.js"></script>
 <script type="text/javascript" src="js/richiestePlayer.js"></script>
 <script type="text/javascript" src="js/searchPlayer.js"></script>
-
+</c:if>
 
 </body>
 </html>
