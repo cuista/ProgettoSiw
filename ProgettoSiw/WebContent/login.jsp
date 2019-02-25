@@ -111,7 +111,7 @@
 							<button type="submit" class="btn btn-success rounded-pill">ACCEDI</button>
 						</div>
 					</div>
-					<a href="#" id="passwordHelp" class="form-text text-muted"><span style="line-height: 2.5;">Hai dimenticato la password?</span></a>
+					<!-- <a href="#" id="passwordHelp" class="form-text text-muted"><span style="line-height: 2.5;">Hai dimenticato la password?</span></a> -->
 				</div>
 				<hr>
 				<h1 class="text-small"><span style="font-weight: 600;">Non hai un account?</span></h1>
