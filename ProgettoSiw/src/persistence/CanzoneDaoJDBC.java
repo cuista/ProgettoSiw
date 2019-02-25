@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import model.Canzone;
 import persistence.dao.AlbumDao;
@@ -143,6 +145,94 @@ public class CanzoneDaoJDBC implements CanzoneDao
 			}
 		}
 		return list_canzone;
+	}
+	
+	@Override
+	public Set<Canzone> getCanzoniDaAlbum(Long id_album)
+	{
+		AlbumDao albumDao = DatabaseManager.getInstance().getDaoFactory().getAlbumDAO();
+		Connection connection = this.dataSource.getConnection();
+		Set<Canzone> canzoni = new HashSet<>();
+		try
+		{
+			String insert = "select * FROM canzone WHERE album = ?";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setLong(1, id_album);
+			ResultSet result = statement.executeQuery();
+			while(result.next())
+			{
+				Canzone canzone = new Canzone(result.getString("titolo"), result.getFloat("durata"), albumDao.findByPrimaryKey(id_album),result.getString("audio"));
+				canzone.setId(result.getLong("id"));
+				canzoni.add(canzone);
+			}
+		}
+		catch (SQLException e)
+		{
+			if (connection != null)
+			{
+				try
+				{
+					connection.rollback();
+				} catch (SQLException excep)
+				{
+					throw new PersistenceException(e.getMessage());
+				}
+			}
+		} finally
+		{
+			try
+			{
+				connection.close();
+			} catch (SQLException e)
+			{
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+		return canzoni;
+	}
+	
+	@Override
+	public Set<Canzone> getCanzoniDaPlaylist(Long id_playlist)
+	{
+		CanzoneDao canzoneDao = DatabaseManager.getInstance().getDaoFactory().getCanzoneDAO();
+		Connection connection = this.dataSource.getConnection();
+		Set<Canzone> canzoni = new HashSet<>();
+		try
+		{
+			String insert = "select canzone FROM raccolta WHERE playlist = ?";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setLong(1, id_playlist);
+			ResultSet result = statement.executeQuery();
+			while(result.next())
+			{
+				canzoni.add(canzoneDao.findByPrimaryKey(result.getLong("canzone")));
+			}
+		}
+		catch (SQLException e)
+		{
+			if (connection != null)
+			{
+				try
+				{
+					connection.rollback();
+				} catch (SQLException excep)
+				{
+					throw new PersistenceException(e.getMessage());
+				}
+			}
+		} finally
+		{
+			try
+			{
+				connection.close();
+			} catch (SQLException e)
+			{
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		
+		return canzoni;
 	}
 
 	@Override

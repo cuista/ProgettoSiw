@@ -116,10 +116,10 @@ function riempiCanzoni(list_canzoni)
 	{
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoneDaId(" + list_canzoni[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
-		.attr("src", "img/album/album4.jpg")
+		.attr("src", list_canzoni[i].album.immagine)
 		.attr("alt", "immagine canzone")
 		.addClass("card-img-top")
 		.appendTo(divCard);
@@ -145,10 +145,10 @@ function riempiAlbum(list_album)
 	{
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdAlbum(" + list_album[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
-		.attr("src", "img/album/album4.jpg")
+		.attr("src", list_album[i].immagine)
 		.attr("alt", "immagine album")
 		.addClass("card-img-top")
 		.appendTo(divCard);
@@ -177,7 +177,7 @@ function riempiArtisti(list_artisti)
 		var divCard = $("<div>").addClass("card").appendTo(divColonna);
 		
 		var immagine = $("<img>")
-		.attr("src", "img/album/album4.jpg")
+		.attr("src", list_artisti[i].immagine)
 		.attr("alt", "immagine artista")
 		.addClass("card-img-top")
 		.appendTo(divCard);
@@ -203,10 +203,10 @@ function riempiPlaylist(list_playlist)
 	{
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdPlaylist(" + list_playlist[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
-		.attr("src", "img/album/album4.jpg")
+		.attr("src", "img/icons/playlist.svg")
 		.attr("alt", "immagine playlist")
 		.addClass("card-img-top")
 		.appendTo(divCard);

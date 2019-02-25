@@ -4,7 +4,6 @@
 
 //CODA tracce musicali
 var indiceCorrente = 0;
-var queueUrl = ["audio/mrbluesky.mp3","audio/bytheway/cabron.mp3","audio/showbiz/showbiz.mp3"];
 var queueCanzoni;
 
 //Variabile AUDIO del player
@@ -31,19 +30,22 @@ $(function()
 	
 	$('.next').on('click', function()
 	{
-	audio.src = queueUrl[indiceCorrente%queueUrl.length];
-	$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueUrl.length].titolo);
-	//$(".player").find(".singer").text(queueAlbum[indiceCorrente%queueUrl.length].titolo);
-	//$(".player").find(".artwork").attr("src",queueAlbum[indiceCorrente%queueUrl.length].immagine);	
-	audio.play();
-	indiceCorrente++;
-	
-	$(".play-pause").removeClass("icon-play");
-	$(".play-pause").addClass("icon-stop");
+		audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+		
+		$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+		$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+		$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+		
+		audio.play();
+		indiceCorrente++;
+		
+		$(".play-pause").removeClass("icon-play");
+		$(".play-pause").addClass("icon-stop");
 	});
 	
-	audio.ontimeupdate = function(){
-    $('.progress').css('width', audio.currentTime / audio.duration * 100 + '%')
+	audio.ontimeupdate = function()
+	{
+		$('.progress').css('width', audio.currentTime / audio.duration * 100 + '%')
 	};
 });
 
@@ -58,15 +60,42 @@ function prendiCanzoneDaId(idCanzone)
 		
 		success : function(canzoneJson) 
 		{
-			var canzone = JSON.parse(canzoneJson);
-			queueUrl=[canzone.audio];
-			queueCanzoni=[canzone];
+			queueCanzoni = [JSON.parse(canzoneJson)];
 			
 			//LA MANDO IN PLAY
-			audio.src = queueUrl[indiceCorrente%queueUrl.length];
-			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueUrl.length].titolo);
-			//$(".player").find(".singer").text(queueAlbum[indiceCorrente%queueUrl.length].titolo);
-			//$(".player").find(".artwork").attr("src",queueAlbum[indiceCorrente%queueUrl.length].immagine);
+			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+			audio.play();
+			indiceCorrente++;
+			$(".play-pause").removeClass("icon-play");
+			$(".play-pause").addClass("icon-stop");
+		},
+		error : function(canzoneJson) 
+		{
+			alert("ERROR");
+		}
+	});
+}
+
+function prendiCanzoniDaIdAlbum(idAlbum)
+{	
+	$.ajax({
+		type : "POST",
+		url : "PrendiCanzoniDaIdAlbum",
+		datatype : "json",
+		data : {idAlbum : idAlbum},
+		
+		success : function(canzoniJson) 
+		{
+			queueCanzoni = JSON.parse(canzoniJson);
+			
+			//LA MANDO IN PLAY
+			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			audio.play();
 			indiceCorrente++;
 			$(".play-pause").removeClass("icon-play");
@@ -78,3 +107,33 @@ function prendiCanzoneDaId(idCanzone)
 		}
 	});
 }
+
+function prendiCanzoniDaIdPlaylist(idPlaylist)
+{	
+	$.ajax({
+		type : "POST",
+		url : "PrendiCanzoniDaIdPlaylist",
+		datatype : "json",
+		data : {idPlaylist : idPlaylist},
+		
+		success : function(canzoniJson) 
+		{
+			queueCanzoni = JSON.parse(canzoniJson);
+			
+			//LA MANDO IN PLAY
+			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+			audio.play();
+			indiceCorrente++;
+			$(".play-pause").removeClass("icon-play");
+			$(".play-pause").addClass("icon-stop");
+		},
+		error : function(canzoniJson) 
+		{
+			alert("ERROR");
+		}
+	});
+}
+

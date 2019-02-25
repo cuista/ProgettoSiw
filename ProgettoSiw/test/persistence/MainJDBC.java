@@ -214,10 +214,19 @@ public class MainJDBC
 		
 		playlist1.setNome("nuovaPlaylist1");
 		playlist1.addCanzone(scartissue.getId());
+		playlist1.addCanzone(sunburn.getId());
+		playlist1.addCanzone(universallyspeaking.getId());
+		playlist1.addCanzone(uno.getId());
+		playlist1.addCanzone(roadtrippin.getId());
+		playlist1.addCanzone(hatethisandillloveyou.getId());
 		playlistDao.update(playlist1);
 		
 		playlist2.setNome("nuovaPlaylist2");
 		playlist2.addCanzone(aroundtheworld.getId());
+		playlist2.addCanzone(showbiz.getId());
+		playlist2.addCanzone(venicequeen.getId());
+		playlist2.addCanzone(unintended.getId());
+		playlist2.addCanzone(fillip.getId());
 		playlist2.addCanzone(paralleluniverse.getId());
 		playlistDao.update(playlist2);
 		
