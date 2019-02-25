@@ -121,7 +121,7 @@ function riempiCanzoni(list_canzoni)
 		var immagine = $("<img>")
 		.attr("src", list_canzoni[i].album.immagine)
 		.attr("alt", "immagine canzone")
-		.addClass("card-img-top")
+		.addClass("card-img-top shape-vinyl")
 		.appendTo(divCard);
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
@@ -150,7 +150,7 @@ function riempiAlbum(list_album)
 		var immagine = $("<img>")
 		.attr("src", list_album[i].immagine)
 		.attr("alt", "immagine album")
-		.addClass("card-img-top")
+		.addClass("card-img-top rounded")
 		.appendTo(divCard);
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
@@ -179,7 +179,7 @@ function riempiArtisti(list_artisti)
 		var immagine = $("<img>")
 		.attr("src", list_artisti[i].immagine)
 		.attr("alt", "immagine artista")
-		.addClass("card-img-top")
+		.addClass("card-img-top rounded-circle")
 		.appendTo(divCard);
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
