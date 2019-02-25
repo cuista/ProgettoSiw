@@ -124,7 +124,7 @@ function riempiPlaylistUtente(list_playlistUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdPlaylist(" + list_playlistUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
@@ -147,7 +147,7 @@ function riempiPlaylistCondiviseAltriUtenti(list_playlistCondAltriUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistCondAltriUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdPlaylist(" + list_playlistCondAltriUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
@@ -170,7 +170,7 @@ function riempiPlaylistCondiviseDaUtente(list_playlistCondDaUtente)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdùplaylist(" + list_playlistCondDaUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdPlaylist(" + list_playlistCondDaUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
