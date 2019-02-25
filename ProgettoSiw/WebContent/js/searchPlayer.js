@@ -184,7 +184,7 @@ function riempiArtisti(list_artisti)
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
 		
-		var p = $("<p>").addClass("card-title text-white").text(list_artisti[i].nome).appendTo(divCardBody);	
+		var p = $("<p>").addClass("card-title text-white").text(list_artisti[i].nome).appendTo(divCardBody);
 	}
 }
 
