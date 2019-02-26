@@ -42,7 +42,7 @@
 							<img src="img/icons/search.svg" class="d-inline-block align-top" alt="search-icon" style="margin-right: 5px;" height="24">Cerca
 						</a>
 						<a class="nav-link dark-link list-group-item" id="tab-elem3" data-toggle="tab" role="tab" aria-controls="elem3" aria-selected="false" href="#elem3">Scarica l'app</a>
-						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">Privacy Polici</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">Privacy Policy</a>
 					</div>
 					<hr style="background-color:gray;">
 					<a class="nav-link dark-link list-group-item" href="index.jsp">
@@ -200,15 +200,15 @@
  MUSIC PLAYER
  !--------------------------------------------------------------->
 <section class="player-container">
-	<audio autoplay src="audio/bytheway.mp3"></audio>
+	<audio autoplay src="audio/benvenuti.mp3"></audio>
 	<div class="player">
-		<img class="artwork" src="img/album/album3.jpg" alt="...">
+		<img class="artwork" src="img/brand/brand_black.svg" alt="...">
 		<div class="info">
-			<div class="name"> By The Way </div>
-			<div class="singer"> Red Hot Chili Peppers </div>
+			<div class="name"> Benvenuto su Vinyl! </div>
+			<div class="singer"> Ascolta subito i tuoi brani preferiti </div>
 		</div>
 		<div class="buttons">
-			<div class="play-pause icon-play" onmouseover="" style="cursor: pointer;"></div>
+			<div class="play-pause icon-stop" onmouseover="" style="cursor: pointer;"></div>
 			<div class="next icon-next" onmouseover="" style="cursor: pointer;"></div>
 		</div>
 		<div class="progress">
