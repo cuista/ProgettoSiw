@@ -5,6 +5,7 @@
 $(document).ready(function() 
 {
 	dammiTutteLeCanzoni();
+	dammiTuttiGliAlbum();
 	dammiPlaylistUtente();
 	dammiPlaylistCondiviseAltriUtenti();
 	dammiPlaylistCondiviseDaUtente();
@@ -22,9 +23,29 @@ function dammiTutteLeCanzoni()
 		success : function(canzoniJson) 
 		{
 			list_canzoni = JSON.parse(canzoniJson);
-			riempiPlayer(list_canzoni);
+			riempiPlayerCanzoni(list_canzoni);
 		},
 		error : function(canzoniJson) 
+		{
+			alert("ERROR");
+		}
+	});
+}
+
+function dammiTuttiGliAlbum()
+{
+	var list_canzoni;
+	$.ajax({
+		type : "POST",
+		url : "DammiAlbum",
+		datatype : "json",
+
+		success : function(albumJson) 
+		{
+			list_album = JSON.parse(albumJson);
+			riempiPlayerAlbum(list_album);
+		},
+		error : function(albumJson) 
 		{
 			alert("ERROR");
 		}
@@ -92,12 +113,16 @@ function dammiPlaylistCondiviseDaUtente()
 }
 
 //RIEMPIMENTO HTML CON RISULTATI
-function riempiPlayer(list_canzoni)
+function riempiPlayerCanzoni(list_canzoni)
 {
 	var divPartenza = $(".tutteCanzoni");
 	divPartenza.html("");
 	
-	for(var i=0; i<list_canzoni.length; i++)
+	var min=0; 
+    var max=15;  
+    var random =Math.floor(Math.random() * (+max - +min)) + +min; 
+	
+	for(var i=(0+random); i<(8+random); i++)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
@@ -112,6 +137,33 @@ function riempiPlayer(list_canzoni)
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
 		
 		var p = $("<p>").addClass("card-title text-white").text(list_canzoni[i].titolo).appendTo(divCardBody);	
+	}
+}
+
+function riempiPlayerAlbum(list_album)
+{
+	var divPartenza = $(".tuttiAlbum");
+	divPartenza.html("");
+	
+	var min=0; 
+	var max=1;  
+	var random =Math.floor(Math.random() * (+max - +min)) + +min; 
+	
+	for(var i=(0+random); i<(1+random); i++)
+	{		
+		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
+		
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdAlbum(" + list_album[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
+		
+		var immagine = $("<img>")
+		.attr("src", list_album[i].immagine)
+		.attr("alt", "immagine album")
+		.addClass("card-img-top rounded")
+		.appendTo(divCard);
+		
+		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
+		
+		var p = $("<p>").addClass("card-title text-white").text(list_album[i].titolo).appendTo(divCardBody);	
 	}
 }
 
