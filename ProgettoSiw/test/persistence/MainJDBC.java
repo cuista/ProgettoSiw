@@ -19,7 +19,10 @@ public class MainJDBC
 
 	public static void main(String args[])
 	{
-		DAOFactory factory = DatabaseManager.getInstance().getDaoFactory();
+		// istanza singleton per fabbrica di oggetti DAO
+		DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.POSTGRESQL);
+//		DAOFactory factory = DatabaseManager.getInstance().getDaoFactory();
+		
 		UtilDao util = factory.getUtilDAO();
 		util.dropDatabase();
 

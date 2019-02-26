@@ -13,8 +13,8 @@ import model.Utente;
 import persistence.DatabaseManager;
 import persistence.dao.UtenteDao;
 
-@WebServlet("/MettiUtentePremium")
-public class MettiUtentePremium extends HttpServlet{
+@WebServlet("/TogliUtentePremium")
+public class TogliUtentePremium extends HttpServlet{
 
 	/**
 	 * 
@@ -27,7 +27,7 @@ public class MettiUtentePremium extends HttpServlet{
 		UtenteDao utenteDao = DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		HttpSession sessione=request.getSession();
 		Utente utente = (Utente) sessione.getAttribute("user");
-		utente.setPremium(true);
+		utente.setPremium(false);
 		utenteDao.update(utente);
 	}
 	
@@ -37,7 +37,7 @@ public class MettiUtentePremium extends HttpServlet{
 		UtenteDao utenteDao = DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		HttpSession sessione=request.getSession();
 		Utente utente = (Utente) sessione.getAttribute("user");
-		utente.setPremium(true);
+		utente.setPremium(false);
 		utenteDao.update(utente);
 	}
 

@@ -35,17 +35,15 @@
 		  <li class="nav-item">
 			<a class="nav-link" href="premium.jsp">Premium</a>
 		  </li>
-		  <li class="nav-item dropdown" style="margin-right: 30px;">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  Dropdown
-			</a>
+		  <li class="nav-item" style="margin-right: 30px;">
+			<a class="nav-link" href="terminiECondizioni.jsp">Termini e condizioni</a>
+		  </li>
 			<!-- PLAYER SE USER LOGGATO -->
 			<c:if test="${not empty user.username}">
 			<li class="nav-item">
 			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
 		  	</li>
 			</c:if>
-		  </li>
 		  <!-- IF USER NON LOGGATO -->
 		  <c:if test="${empty user.username}">
 		  	<li class="nav-item">
@@ -95,7 +93,7 @@
 			<div class="col-sm-5">
 				<h3>Passa alla versione Premium,<br> il primo mese è gratis!</h3>
 				<p>Puoi annullare l'abbonamento in qualsiasi momento.<br>Al termine dell'offerta, solo 4,99€ al mese.</p>
-				<a href="#" class="btn btn-primary btn-lg rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+				<a href="premium.jsp" class="btn btn-primary btn-lg rounded-pill" role="button">PROVA GRATUITAMENTE</a>
 			</div>
 		</div>
 	</div>
@@ -137,7 +135,7 @@
 	  				<li class="check-item">Audio di qualità elevata</li>
 	  			</ul>
 	  			<hr class="my-4">
-	  			<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+	  			<a href="premium.jsp" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
 	  		</div>
   		</div>
 	</div>
@@ -151,8 +149,8 @@
 	  			<p class="lead">Vinyl è un servizio musicale che offre lo streaming on demand di una vasta gamma di brani da tutto il mondo, La musica può essere visualizzata per artista, album, etichetta, genere o playlist. Entra nella nostra community!</p>
 	  			<hr class="my-4">
 	  			<p>Gli utenti che hanno sottoscritto il servizio Premium o Unlimited o hanno già ricevuto un periodo di prova gratuito non possono accedere alla prova gratuita di 30 giorni.</p>
-	  			<p style="color: #919496;margin:10px;">*Offerta per la prova gratuita di 30 giorni di Vinyl® Si applicano <a href="#">Termini e condizioni</a>.</p>
-	  			<a class="btn btn-secondary btn-lg rounded-pill" href="#" role="button">SCOPRI DI PIÙ</a>
+	  			<p style="color: #919496;margin:10px;">*Offerta per la prova gratuita di 30 giorni di Vinyl® Si applicano <a href="terminiECondizioni.jsp">Termini e condizioni</a>.</p>
+	  			<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni" role="button">SCOPRI DI PIÙ</a>
 	  		</div>
 		</div>
 	</div>

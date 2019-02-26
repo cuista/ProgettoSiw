@@ -36,17 +36,15 @@
 		  <li class="nav-item">
 			<a class="nav-link" href="premium.jsp">Premium</a>
 		  </li>
-		  <li class="nav-item dropdown" style="margin-right: 30px;">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  Dropdown
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <a class="dropdown-item" href="#">Action</a>
-			  <a class="dropdown-item" href="#">Another action</a>
-			  <div class="dropdown-divider"></div>
-			  <a class="dropdown-item" href="#">Something else here</a>
-			</div>
+		  <li class="nav-item" style="margin-right: 30px;">
+			<a class="nav-link" href="terminiECondizioni.jsp">Termini e condizioni</a>
 		  </li>
+			<!-- PLAYER SE USER LOGGATO -->
+			<c:if test="${not empty user.username}">
+			<li class="nav-item">
+			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
+		  	</li>
+			</c:if>
 		  <!-- IF USER LOGGATO -->
 		  <c:if test="${empty user.username}">
 		  	<li class="nav-item">
@@ -82,9 +80,12 @@
 <section class="container banner" style="background-image: url(img/gestioneUtente.jpg);">
 		<div class="row">
 			<div class="col-sm-5 offset-sm-7">
+				<!-- SE UTENTE NON PREMIUM -->
+				<c:if test="${!user.premium}">
 				<h3>Passa alla versione Premium,<br> il primo mese è gratis!</h3>
 				<p>Puoi annullare l'abbonamento in qualsiasi momento.<br>Al termine dell'offerta, solo 4,99€ al mese.</p>
 				<a href="#" class="btn btn-primary rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+				</c:if>
 			</div>
 		</div>
 </section>
@@ -191,6 +192,20 @@
 					<div class="tab-padding">
 						<h2 class="text-subtitle"> Premium </h2>
 						<hr>
+						<!-- SE UTENTE PREMIUM -->
+						<c:if test="${user.premium}">
+						<div class="jumbotron border">
+							<h3 class="text-subtitle">Gestisci il tuo account Vinyl Premium</h3>
+							<hr class="my-4">
+							<p class="lead"> Per te, che possiedi un account Premium, ti garantiamo tutte le funzionalità di Vinyl. <br> Non finisce qua! Presto ne aggiungeremo di nuove e saranno tutte disponibili per te.</p>
+							<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
+							<hr class="my-4">
+							<p class="lead"> Desideri tornare alla versione free? </p>
+							<button onclick="disdiciPremium()" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">DISDICI PREMIUM</a>
+						</div>
+						</c:if>
+						<!-- SE UTENTE NON PREMIUM -->
+						<c:if test="${!user.premium}">
 						<div class="jumbotron border">
 							<h3 class="text-subtitle">Vinyl PREMIUM<br><span style="font-family: Helvetica;">€ 4,99</span><span class="text-small">/MESE</span></h3>
 							<p class="text-note">*Inizia la tua prova gratis di 30 giorni</p>
@@ -203,8 +218,9 @@
 								<li class="check-item">Audio di qualità  elevata</li>
 							</ul>
 							<hr class="my-4">
-							<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+							<a href="premium.jsp" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
 						</div>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -249,6 +265,7 @@
 <c:if test="${empty user.username}"><script>$("html").load("ritornaHome.html");</script></c:if>
 <c:if test="${not empty user.username}">
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+<script type="text/javascript" src="js/disdiciPremium.js"></script>
 </c:if>
 
 

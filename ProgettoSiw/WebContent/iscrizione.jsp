@@ -35,17 +35,15 @@
 		  <li class="nav-item">
 			<a class="nav-link" href="premium.jsp">Premium</a>
 		  </li>
-		  <li class="nav-item dropdown" style="margin-right: 30px;">
-			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			  Dropdown
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <a class="dropdown-item" href="#">Action</a>
-			  <a class="dropdown-item" href="#">Another action</a>
-			  <div class="dropdown-divider"></div>
-			  <a class="dropdown-item" href="#">Something else here</a>
-			</div>
+		  <li class="nav-item" style="margin-right: 30px;">
+			<a class="nav-link" href="terminiECondizioni.jsp">Termini e condizioni</a>
 		  </li>
+			<!-- PLAYER SE USER LOGGATO -->
+			<c:if test="${not empty user.username}">
+			<li class="nav-item">
+			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
+		  	</li>
+			</c:if>
 		  <!-- IF USER LOGGATO -->
 		  <c:if test="${empty user.username}">
 		  	<li class="nav-item active">
@@ -96,7 +94,7 @@
 				<div id="status"></div>
 				<!-- --------end-FB-------------- -->
 				
-					<p class="text-small"><span style="color: #919496">Se clicchi su "Iscriviti con Facebook" sarai registrato su Vinyl e accetterai i relativi <a href="#">Termini e condizioni</a>.</span></p>
+					<p class="text-small"><span style="color: #919496">Se clicchi su "Iscriviti con Facebook" sarai registrato su Vinyl e accetterai i relativi <a href="terminiECondizioni.jsp">Termini e condizioni</a>.</span></p>
 				<hr>
 				<h1 class="text-small"><span style="font-weight: 600;">Iscriviti con il tuo indirizzo email.</span></h1>
 				<!-- FORM-GROUP -->
@@ -108,7 +106,7 @@
 				<div class="form-group form-check">
 					<input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheckTerminiCondizioni" required>
 					<label class="form-check-label" for="invalidCheck3">
-					Accetto i <a href="#">Termini e condizioni</a> di Vinyl.
+					Accetto i <a href="terminiECondizioni.jsp">Termini e condizioni</a> di Vinyl.
 					</label>
 					<div class="invalid-feedback">
 					Devi accettare prima di iscriverti.
@@ -116,7 +114,7 @@
 				</div>
 				<button name="inviaIscrizione" type="submit" class="btn btn-success rounded-pill">ISCRIVITI</button>
 				<hr>
-				<p class="text-small"><span style="color: #919496">Se desideri ulteriori informazioni su come Vinyl raccoglie, elabora, condivide e protegge i tuoi dati personali, leggi l'Informativa sulla privacy di Vinyl. <a href="#">Maggiori informazioni</a>.</span></p>
+				<p class="text-small"><span style="color: #919496">Se desideri ulteriori informazioni su come Vinyl raccoglie, elabora, condivide e protegge i tuoi dati personali, leggi l'Informativa sulla privacy di Vinyl. <a href="terminiECondizioni.jsp">Maggiori informazioni</a>.</span></p>
 			</div>
 		</div>
 	</form>
