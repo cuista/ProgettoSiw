@@ -40,9 +40,18 @@
 		  </li>
 			<!-- PLAYER SE USER LOGGATO -->
 			<c:if test="${not empty user.username}">
-			<li class="nav-item">
-			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
-		  	</li>
+				<!-- SE UTENTE PREMIUM -->
+				<c:if test="${user.premium}">
+					<li class="nav-item">
+					<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
+				  	</li>
+				</c:if>
+				<!-- SE UTENTE NON PREMIUM -->
+				<c:if test="${!user.premium}">
+					<li class="nav-item">
+					<a class="nav-link active" href="playerNonPremium.jsp">Player Web<span class="sr-only">(current)</span></a>
+				  	</li>
+				</c:if>
 			</c:if>
 		  <!-- IF USER LOGGATO -->
 		  <c:if test="${empty user.username}">
@@ -78,11 +87,14 @@
  !--------------------------------------------------------------->
 <section class="container banner" style="background-image: url(img/gestioneUtente.jpg);">
 		<div class="row">
+			<!-- SE UTENTE NON PREMIUM -->
+			<c:if test="${!user.premium}">
 			<div class="col-sm-5 offset-sm-7">
 				<h3>Passa alla versione Premium,<br> il primo mese è gratis!</h3>
 				<p>Puoi annullare l'abbonamento in qualsiasi momento.<br>Al termine dell'offerta, solo 4,99€ al mese.</p>
 				<button type="button" class="btn btn-primary btn-lg btn-block rounded-pill" data-toggle="modal" data-target="#modalPagamento">PASSA A PREMIUM</button>
 			</div>
+			</c:if>
 		</div>
 </section>
 
@@ -91,6 +103,8 @@
  !--------------------------------------------------------------->
 <section class="container content">
 
+	<!-- SE UTENTE NON PREMIUM -->
+	<c:if test="${!user.premium}">
 	<h2 class="text-title">Perchè passare a Vinyl Premium?</h2>
 
 	<div class="row">
@@ -111,6 +125,28 @@
 	  		</div>
   		</div>
 	</div>
+	</c:if>
+	
+	<!-- SE UTENTE PREMIUM -->
+	<c:if test="${user.premium}">
+	<h2 class="text-title">Complimenti! Sei già utente Premium.</h2>
+
+	<div class="row">
+		<div class="col-sm-10 offset-sm-1">
+			<div class="jumbotron border">
+	  			<h3 class="text-subtitle">Vinyl PREMIUM<br>Ecco i vantaggi a tua disposizione!</h3>
+	  			<hr class="my-4">
+	  			<ul class="lead" style="text-align: left;">
+	  				<li class="check-item">Ascolta qualsiasi brano</li>
+	  				<li class="check-item">Ascolta offline</li>
+	  				<li class="check-item">Niente pubblicità</li>
+	  				<li class="check-item">Skip illimitati</li>
+	  				<li class="check-item">Audio di qualità elevata</li>
+	  			</ul>
+	  		</div>
+  		</div>
+	</div>
+	</c:if>
 	
 	
 	<div class="row">
@@ -132,6 +168,8 @@
 <!---------------------------------------------------------------
  MODAL DATI CARTA DI CREDITO
  !--------------------------------------------------------------->
+<!-- SE UTENTE NON PREMIUM -->
+<c:if test="${!user.premium}">
 <div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -196,6 +234,7 @@
 		</div>
 	</div>
 </div>
+</c:if>
 
 <!---------------------------------------------------------------
  FOOTER

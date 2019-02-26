@@ -38,12 +38,21 @@
 		  <li class="nav-item active" style="margin-right: 30px;">
 			<a class="nav-link" href="terminiECondizioni.jsp">Termini e condizioni</a>
 		  </li>
-		  <!-- PLAYER SE USER LOGGATO -->
-		  <c:if test="${not empty user.username}">
-			<li class="nav-item">
-			<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
-		  	</li>
-		  </c:if>
+			<!-- PLAYER SE USER LOGGATO -->
+			<c:if test="${not empty user.username}">
+				<!-- SE UTENTE PREMIUM -->
+				<c:if test="${user.premium}">
+					<li class="nav-item">
+					<a class="nav-link active" href="player.jsp">Player Web<span class="sr-only">(current)</span></a>
+				  	</li>
+				</c:if>
+				<!-- SE UTENTE NON PREMIUM -->
+				<c:if test="${!user.premium}">
+					<li class="nav-item">
+					<a class="nav-link active" href="playerNonPremium.jsp">Player Web<span class="sr-only">(current)</span></a>
+				  	</li>
+				</c:if>
+			</c:if>
 		  <!-- IF USER NON LOGGATO -->
 		  <c:if test="${empty user.username}">
 		  	<li class="nav-item">

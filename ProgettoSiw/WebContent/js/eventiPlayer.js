@@ -3,8 +3,15 @@
  */
 
 //CODA tracce musicali
-var indiceCorrente = 0;
-var queueCanzoni = ["audio/benvenuti.mp3"];
+
+$(document).ready(function() 
+{
+	queueCanzoni = ["audio/benvenuti.mp3"];
+	indiceCorrente = 1;
+});
+	
+var indiceCorrente;
+var queueCanzoni;
 
 //Variabile AUDIO del player
 var audio= $("audio")[0];
@@ -46,6 +53,24 @@ $(function()
 	audio.ontimeupdate = function()
 	{
 		$('.progress').css('width', audio.currentTime / audio.duration * 100 + '%')
+		
+		if(audio.currentTime == audio.duration)
+			{
+				audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+				
+				if(queueCanzoni[indiceCorrente%queueCanzoni.length]!="audio/benvenuti.mp3")
+				{
+					$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+					$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+					$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+				}
+				
+				audio.play();
+				indiceCorrente++;
+				
+				$(".play-pause").removeClass("icon-play");
+				$(".play-pause").addClass("icon-stop");
+			}
 	};
 });
 

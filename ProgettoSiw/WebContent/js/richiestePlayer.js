@@ -119,8 +119,14 @@ function riempiPlayerCanzoni(list_canzoni)
 	divPartenza.html("");
 	
 	var min=0; 
-    var max=15;  
-    var random =Math.floor(Math.random() * (+max - +min)) + +min; 
+    var max=22;  
+    var random =Math.floor(Math.random() * (+max - +min)) + +min;
+    
+	if(list_canzoni.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
 	
 	for(var i=(0+random); i<(8+random); i++)
 	{		
@@ -149,6 +155,12 @@ function riempiPlayerAlbum(list_album)
 	var max=1;  
 	var random =Math.floor(Math.random() * (+max - +min)) + +min; 
 	
+	if(list_album.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
+	
 	for(var i=(0+random); i<(1+random); i++)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
@@ -171,6 +183,12 @@ function riempiPlaylistUtente(list_playlistUtente)
 {
 	var divPartenza = $(".playlistUtente");
 	divPartenza.html("");
+	
+	if(list_playlistUtente.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
 	
 	for(var i=0; i<list_playlistUtente.length; i++)
 	{		
@@ -195,6 +213,12 @@ function riempiPlaylistCondiviseAltriUtenti(list_playlistCondAltriUtente)
 	var divPartenza = $(".playlistCondiviseAltriUtenti");
 	divPartenza.html("");
 	
+	if(list_playlistCondAltriUtente.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
+	
 	for(var i=0; i<list_playlistCondAltriUtente.length; i++)
 	{		
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
@@ -217,6 +241,12 @@ function riempiPlaylistCondiviseDaUtente(list_playlistCondDaUtente)
 {
 	var divPartenza = $(".playlistCondiviseDaUtente");
 	divPartenza.html("");
+	
+	if(list_playlistCondDaUtente.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
 	
 	for(var i=0; i<list_playlistCondDaUtente.length; i++)
 	{		

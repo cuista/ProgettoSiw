@@ -20,10 +20,13 @@ class PostgresDAOFactory extends DAOFactory {
 		try 
 		{
 			Class.forName("org.postgresql.Driver").newInstance();
-			//questi vanno messi in file di configurazione!!!	
-//			dataSource=new DataSource("jdbc:postgresql://52.39.164.176:5432/xx","xx","p@xx");
+
+			//DATABASE IN REMOTO
 //			dataSource=new DataSource("jdbc:postgresql://manny.db.elephantsql.com:5432/wzpvguxd","wzpvguxd","9_CTTez605MRrJeUWM3oijHAYZOMREMF");
+			
+			//DATABASE LOCALE
 			dataSource=new DataSource("jdbc:postgresql://localhost:5432/ProgettoSiw","postgres","root");
+			
 		} 
 		catch (Exception e) 
 		{

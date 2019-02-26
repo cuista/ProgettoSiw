@@ -57,17 +57,16 @@
 				<div class="tab-pane fade show active" id="elem0" role="tabpanel" aria-labelledby="tab-0">
 					<div class="tab-padding">
 					
-						<h2 class="text-subtitle text-white"> Canzoni scelte per te </h2>
+						<h2 class="text-subtitle text-white" style="text-align: center;"> FUNZIONALITÀ BLOCCATE! </h2>
 						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row tutteCanzoni">
-							</div>
-						</div>
-					
-						<h2 class="text-subtitle text-white"> Album scelti per te </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row tuttiAlbum">
+						<div class="row">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="jumbotron border">
+									<h3 class="text-message text">Per gli utenti NON Premium non è possibilè utilizzare tutte le funzioni del player.</h3>
+									<p> Ascolta brani casuali dal player, attenzione gli skip sono limitati.</p>
+									<hr class="my-4">
+									<a href="premium.jsp" class="btn btn-success btn-lg btn-block rounded-pill" role="button">PASSA A PREMIUM</a>
+								</div>
 							</div>
 						</div>
 						
@@ -76,24 +75,16 @@
 				<div class="tab-pane fade" id="elem1" role="tabpanel" aria-labelledby="tab-1">
 					<div class="tab-padding">
 					
-						<h2 class="text-subtitle text-white"> Playlist </h2>
+						<h2 class="text-subtitle text-white" style="text-align: center;"> FUNZIONALITÀ BLOCCATE! </h2>
 						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row playlistUtente">		
-							</div>
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Condivise dagli utenti </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row playlistCondiviseAltriUtenti">
-							</div>
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Condivise da te </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row playlistCondiviseDaUtente">
+						<div class="row">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="jumbotron border">
+									<h3 class="text-message text">Per gli utenti NON Premium non è possibilè utilizzare tutte le funzioni del player.</h3>
+									<p> Ascolta brani casuali dal player, attenzione gli skip sono limitati.</p>
+									<hr class="my-4">
+									<a href="premium.jsp" class="btn btn-success btn-lg btn-block rounded-pill" role="button">PASSA A PREMIUM</a>
+								</div>
 							</div>
 						</div>
 						
@@ -101,43 +92,17 @@
 				</div>
 				<div class="tab-pane fade" id="elem2" role="tabpanel" aria-labelledby="tab-2">
 					<div class="tab-padding">
-						<div style="padding-bottom:20px;">
-							<!-- FORM-CERCA -->
-							<form style="background-color: rgba(253, 253, 253, 0.1);">
-								    <input class="form-control-search mr-sm-2" type="text" name="inputSearch" id="inputSearch">
-							</form>
-							<!-- end-form -->
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Canzoni </h2>
+					
+						<h2 class="text-subtitle text-white" style="text-align: center;"> FUNZIONALITÀ BLOCCATE! </h2>
 						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row canzoni">
-								<p class="text-white" style="width:100%;font-size: 2rem;">Nessun Risultato</p>
-							</div>
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Album </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row album">
-								<p class="text-white" style="width:100%;font-size: 2rem;">Nessun Risultato</p>
-							</div>
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Artisti </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row artisti">
-								<p class="text-white" style="width:100%;font-size: 2rem;">Nessun Risultato</p>
-							</div>
-						</div>
-						
-						<h2 class="text-subtitle text-white"> Playlist </h2>
-						<hr style="background-color: #fff;">
-						<div class="container-fluid" style="display: block;">
-							<div class="row playlist">
-								<p class="text-white" style="width:100%;font-size: 2rem;">Nessun Risultato</p>
+						<div class="row">
+							<div class="col-lg-6 offset-lg-3">
+								<div class="jumbotron border">
+									<h3 class="text-message text">Per gli utenti NON Premium non è possibilè utilizzare tutte le funzioni del player.</h3>
+									<p> Ascolta brani casuali dal player, attenzione gli skip sono limitati.</p>
+									<hr class="my-4">
+									<a href="premium.jsp" class="btn btn-success btn-lg btn-block rounded-pill" role="button">PASSA A PREMIUM</a>
+								</div>
 							</div>
 						</div>
 						
@@ -200,16 +165,17 @@
  MUSIC PLAYER
  !--------------------------------------------------------------->
 <section class="player-container">
-	<audio autoplay src="audio/benvenuti.mp3"></audio>
+	<audio autoplay src=""></audio>
 	<div class="player">
 		<img class="artwork" src="img/brand/brand_white.svg" alt="...">
 		<div class="info">
-			<div class="name"> Benvenuto su Vinyl! </div>
-			<div class="singer"> Ascolta subito i tuoi brani preferiti </div>
+			<div class="name"> </div>
+			<div class="singer"> </div>
 		</div>
 		<div class="buttons">
 			<div class="play-pause icon-stop" onmouseover="" style="cursor: pointer;"></div>
 			<div class="next icon-next" onmouseover="" style="cursor: pointer;"></div>
+			<p style="padding-top: 15px"> Skip rimasti: <p><p class="skip" style="padding-top: 15px">10</p>
 		</div>
 		<div class="progress">
 		
@@ -235,9 +201,7 @@
 <script src="js/bootstrap.min.js"></script>
 <c:if test="${empty user.username}"><script>$("html").load("ritornaHome.html");</script></c:if>
 <c:if test="${not empty user.username}">
-<script type="text/javascript" src="js/eventiPlayer.js"></script>
-<script type="text/javascript" src="js/richiestePlayer.js"></script>
-<script type="text/javascript" src="js/searchPlayer.js"></script>
+<script type="text/javascript" src="js/eventiPlayerNonPremium.js"></script>
 </c:if>
 
 </body>
