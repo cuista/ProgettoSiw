@@ -83,7 +83,7 @@
 			<div class="col-sm-5 offset-sm-7">
 				<h3>Passa alla versione Premium,<br> il primo mese è gratis!</h3>
 				<p>Puoi annullare l'abbonamento in qualsiasi momento.<br>Al termine dell'offerta, solo 4,99€ al mese.</p>
-				<a href="#" class="btn btn-primary rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+				<button type="button" class="btn btn-primary btn-lg btn-block rounded-pill" data-toggle="modal" data-target="#modalPagamento">PASSA A PREMIUM</button>
 			</div>
 		</div>
 </section>
@@ -109,7 +109,7 @@
 	  				<li class="check-item">Audio di qualità elevata</li>
 	  			</ul>
 	  			<hr class="my-4">
-	  			<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+	  			<button type="button" class="btn btn-primary btn-lg btn-block rounded-pill" data-toggle="modal" data-target="#modalPagamento">PASSA A PREMIUM</button>
 	  		</div>
   		</div>
 	</div>
@@ -130,6 +130,74 @@
 	</div>
 	
 </section>
+
+<!---------------------------------------------------------------
+ MODAL DATI CARTA DI CREDITO
+ !--------------------------------------------------------------->
+<div class="modal fade" id="modalPagamento" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalLabel">Dettagli Pagamento</h5>
+				<img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="container">
+					<form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+						<div class="form-row">
+							<div class="col-12">
+								<div class="form-group">
+									<label for="cardNumber">Numero Carta di Credito</label>
+									<div class="input-group">
+										<input type="tel" class="form-control" name="cardNumber" placeholder="Numero di Carta Valido" autocomplete="cc-number" required autofocus />
+										<img style="content: url(img/icons/credit-card.svg); height: 38px;">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-xs-7 col-md-7">
+								<div class="form-group">
+									<label for="cardExpiry">Data di Scadenza</label> 
+									<input type="tel" class="form-control" name="cardExpiry" placeholder="MM / AA" autocomplete="cc-exp" required />
+								</div>
+							</div>
+							<div class="col-xs-5 col-md-5 pull-right">
+								<div class="form-group">
+									<label for="cardCVC">Codice CVC/CVV</label> 
+									<input type="tel" class="form-control" name="cardCVC" placeholder="CVC/CVV" autocomplete="cc-csc" required />
+								</div>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-xs-12">
+								<div class="form-group">
+									<label for="couponCode">Nome Titolare Carta</label> 
+									<input type="text" class="form-control" name="couponCode" placeholder="Nome" />
+								</div>
+								<div class="form-group">
+									<label for="couponCode">Cognome Titolare Carta</label> 
+									<input type="text" class="form-control" name="couponCode" placeholder="Cognome" />
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="subscribe btn btn-success">Iscriviti a Premium</button>
+						</div>
+						<div class="form-row" style="display: none;">
+							<div class="col-xs-12">
+								<p class="payment-errors">ERRORE: </p>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!---------------------------------------------------------------
  FOOTER
@@ -165,6 +233,13 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+
+<!-- CARTA DI CREDITO -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.2.3/jquery.payment.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="js/cartaDiCredito.js"></script>
 
 </body>
 </html>
