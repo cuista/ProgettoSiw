@@ -4,7 +4,7 @@
 
 //CODA tracce musicali
 var indiceCorrente = 0;
-var queueCanzoni;
+var queueCanzoni = ["audio/benvenuti.mp3"];
 
 //Variabile AUDIO del player
 var audio= $("audio")[0];
