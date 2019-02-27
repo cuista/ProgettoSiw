@@ -6,7 +6,8 @@ import persistence.dao.AlbumDao;
 import persistence.dao.ArtistaDao;
 import persistence.dao.UtenteDao;
 
-class PostgresDAOFactory extends DAOFactory {
+class PostgresDAOFactory extends DAOFactory 
+{
 
 	//INFO: fabbrica concreta oggetti DAO
 	
