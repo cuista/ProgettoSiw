@@ -86,12 +86,12 @@
  LOGIN
  !--------------------------------------------------------------->
 <section class="login-iscrizione">
-	  <div class="row">
-   		<div class="col-sm-12 col-md-6 offset-md-3 container jumbotron border">
-   			<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
+	<div class="row">
+  		<div class="col-sm-12 col-md-6 offset-md-3 container jumbotron border">
+	  		<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
 			<hr>
 			
-   			<!-- FB LOGIN BUTTON -->
+	  			<!-- FB LOGIN BUTTON -->
 			<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">
 				<img class="product img-responsive center-block" id="prova" src="img/login-with-facebook.png" />
 			</a>

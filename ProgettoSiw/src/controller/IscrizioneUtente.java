@@ -38,13 +38,6 @@ public class IscrizioneUtente extends HttpServlet
 		String password = req.getParameter("password");
 		String username = req.getParameter("username");
 		
-		PrintWriter out = resp.getWriter();
-		if(!email.equals(confermaEmail))
-		{
-			out.print("le email non corrispondono"); //stampa su "/iscriviUtente"
-			return;
-		}
-		
 		UtenteDao utenteDao= DatabaseManager.getInstance().getDaoFactory().getUtenteDAO();
 		List<Utente> utenti=utenteDao.findAll();	
 		boolean usernameUguali= false, emailUguali = false;
@@ -60,15 +53,35 @@ public class IscrizioneUtente extends HttpServlet
 				emailUguali = true;
 			}
 		}
-	
-		if(emailUguali)
+		
+		PrintWriter out = resp.getWriter();
+		
+		if(username.length()<=4)
 		{
-			out.print("email già esistente");
+			out.print("usernameCorto");
 			return;
 		}
-		else if(usernameUguali)
+		
+		if(password.length()<=4)
 		{
-			out.print("username già esistente");
+			out.print("passwordCorta");
+			return;
+		}
+		
+		if(!email.equals(confermaEmail))
+		{
+			out.print("emailDifferenti");
+			return;
+		}
+		
+		if(emailUguali)
+		{
+			out.print("puoiLoggare");
+			return;
+		}
+		if(usernameUguali)
+		{
+			out.print("usernameUguale");
 			return;
 		}
 

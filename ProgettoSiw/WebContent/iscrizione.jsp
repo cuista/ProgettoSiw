@@ -86,25 +86,25 @@
  ISCRIZIONE
  !--------------------------------------------------------------->
 <section class="login-iscrizione">
-	<form method="post" action="IscrizioneUtente" class="container jumbotron border">
-		<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
-		<hr>
-		  <div class="row">
-    		<div class="col-sm-12 col-md-6 offset-md-3">
-				
-				<!-- FB LOGIN BUTTON -->
-				<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">
-					<img class="product img-responsive center-block" id="prova" src="img/login-with-facebook.png" />
-				</a>
-				<div id="facebook-result"></div>
-				<!-- Display user profile data -->
-				<div id="userData"></div>
-				<!-- <!-- Display login status -->
-				<div id="status"></div>
-				<!-- --------end-FB-------------- -->
-				
-					<p class="text-small"><span style="color: #919496">Se clicchi su "Iscriviti con Facebook" sarai registrato su Vinyl e accetterai i relativi <a href="terminiECondizioni.jsp">Termini e condizioni</a>.</span></p>
-				<hr>
+	<div class="row">
+		<div class="col-sm-12 col-md-6 offset-md-3 container jumbotron border">
+			<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
+			<hr>	
+			
+			<!-- FB LOGIN BUTTON -->
+			<a href="javascript:void(0);" onclick="fbLogin()" id="fbLink">
+				<img class="product img-responsive center-block" id="prova" src="img/login-with-facebook.png" />
+			</a>
+			<div id="facebook-result"></div>
+			<!-- Display user profile data -->
+			<div id="userData"></div>
+			<!-- <!-- Display login status -->
+			<div id="status"></div>
+			<!-- --------end-FB-------------- -->
+			
+				<p class="text-small"><span style="color: #919496">Se clicchi su "Iscriviti con Facebook" sarai registrato su Vinyl e accetterai i relativi <a href="terminiECondizioni.jsp">Termini e condizioni</a>.</span></p>
+			<hr>
+			<form method="post" action="IscrizioneUtente" id="FormIscrizione">
 				<h1 class="text-small"><span style="font-weight: 600;">Iscriviti con il tuo indirizzo email.</span></h1>
 				<!-- FORM-GROUP -->
 				<div class="form-group"><input name="email" type="text" class="form-control" placeholder="Indirizzo Email"></div>
@@ -122,11 +122,12 @@
 					</div>
 				</div>
 				<button name="inviaIscrizione" type="submit" class="btn btn-success rounded-pill">ISCRIVITI</button>
-				<hr>
-				<p class="text-small"><span style="color: #919496">Se desideri ulteriori informazioni su come Vinyl raccoglie, elabora, condivide e protegge i tuoi dati personali, leggi l'Informativa sulla privacy di Vinyl. <a href="terminiECondizioni.jsp">Maggiori informazioni</a>.</span></p>
-			</div>
+				<div id="iscrizione-result"></div>
+			</form>
+			<hr>
+			<p class="text-small"><span style="color: #919496">Se desideri ulteriori informazioni su come Vinyl raccoglie, elabora, condivide e protegge i tuoi dati personali, leggi l'Informativa sulla privacy di Vinyl. <a href="terminiECondizioni.jsp">Maggiori informazioni</a>.</span></p>
 		</div>
-	</form>
+	</div>
 </section>
 
 <!---------------------------------------------------------------
@@ -162,6 +163,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jumbotronAnimation.js"></script>
+<script type="text/javascript" src="js/iscrizione.js"></script>
 <script type="text/javascript" src="js/loginConFacebook.js"></script>
 
 
