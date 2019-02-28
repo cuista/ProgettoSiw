@@ -3,6 +3,9 @@
  */
 
 //EVENTO FORM
+
+var nuovaPlaylist = [];
+
 $(document).ready(function() 
 {
 	$('form').keypress(function(e) { 
@@ -14,7 +17,7 @@ $(document).ready(function()
         // Enter premuto?
         if(e.which == 10 || e.which == 13) 
         {            
-            creaPlaylist(playlistDaCreare);
+            creaPlaylist($("#nomePlaylist").val(),nuovaPlaylist);
             
             nuovaPlaylist = [];
         }
@@ -26,8 +29,6 @@ $(document).ready(function()
 	});
 	
 });
-
-var nuovaPlaylist = [];
 
 //RICHIESTE AJAX
 function ricercaCanzoniPerPlaylist(stringa_daCercare)
@@ -71,17 +72,19 @@ function aggiungiCanzoneAPlaylist(idCanzone)
 	});
 }
 
-function creaPlaylist(playlistDaCreare)
+function creaPlaylist(stringaCercata,playlistDaCreare)
 {
+	var nomePlaylist = {nomePlaylist: stringaCercata};
+	
 	$.ajax({
 		type : "POST",
 		url : "CreaPlaylist",
 		datatype : "json",
-		data : {playlistDaCreare : playlistDaCreare},
+		data : JSON.stringify([nomePlaylist,playlistDaCreare]),
 
-		success : function(data) 
+		success : function() 
 		{
-			alert(data);
+			dammiPlaylistUtente();
 			$("#playlistCreata-result")
 			.html("<div class=\"alert alert-success\" role=\"alert\">Playlist creata con successo.</div>");
 			setTimeout(function() 
@@ -90,7 +93,7 @@ function creaPlaylist(playlistDaCreare)
 				.html("");
 			}, 2000);
 		},
-		error : function(data) 
+		error : function() 
 		{
 			alert("ERROR");
 		}
