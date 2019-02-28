@@ -41,7 +41,9 @@
 						<a class="nav-link dark-link list-group-item" id="tab-elem2" data-toggle="tab" role="tab" aria-controls="elem2" aria-selected="false" href="#elem2">
 							<img src="img/icons/search.svg" class="d-inline-block align-top" alt="search-icon" style="margin-right: 5px;" height="24">Cerca
 						</a>
-						<a class="nav-link dark-link list-group-item" id="tab-elem3" data-toggle="tab" role="tab" aria-controls="elem3" aria-selected="false" href="#elem3">Scarica l'app</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem3" data-toggle="tab" role="tab" aria-controls="elem3" aria-selected="false" href="#elem3">
+							<img src="img/icons/playlist-file.svg" class="d-inline-block align-top" alt="playlist-icon" style="margin-right: 5px;" height="24">Crea Playlist
+						</a>
 						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">Privacy Policy</a>
 					</div>
 					<hr style="background-color:gray;">
@@ -110,18 +112,20 @@
 				</div>
 				<div class="tab-pane fade" id="elem3" role="tabpanel" aria-labelledby="tab-3">
 					<div class="tab-padding">
-						<h2 class="text-subtitle text-white"> Installa App </h2>
+					
+						<h2 class="text-subtitle text-white" style="text-align: center;"> FUNZIONALITÀ BLOCCATE! </h2>
 						<hr style="background-color: #fff;">
 						<div class="row">
 							<div class="col-lg-6 offset-lg-3">
 								<div class="jumbotron border">
-									<h3 class="text-message text">L'app di Vinyl è arrivata!</h3>
-									<p> Ascolta la tua musica preferita ovunque, anche dal tuo smartphone.</p>
+									<h3 class="text-message text">Per gli utenti NON Premium non è possibilè utilizzare tutte le funzioni del player.</h3>
+									<p> Ascolta brani casuali dal player, attenzione gli skip sono limitati.</p>
 									<hr class="my-4">
-									<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">SCARICA GRATUITAMENTE</a>
+									<a href="premium.jsp" class="btn btn-success btn-lg btn-block rounded-pill" role="button">PASSA A PREMIUM</a>
 								</div>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 				<div class="tab-pane fade" id="elem4" role="tabpanel" aria-labelledby="tab-4">
@@ -169,13 +173,14 @@
 	<div class="player">
 		<img class="artwork" src="img/brand/brand_white.svg" alt="...">
 		<div class="info">
-			<div class="name"> </div>
+			<div class="name"> Sto caricando.. </div>
 			<div class="singer"> </div>
 		</div>
 		<div class="buttons">
+			<div class="previous icon-previous" onmouseover="" style="cursor: pointer;"></div>
 			<div class="play-pause icon-stop" onmouseover="" style="cursor: pointer;"></div>
 			<div class="next icon-next" onmouseover="" style="cursor: pointer;"></div>
-			<p style="padding-top: 15px"> Skip rimasti: <p><p class="skip" style="padding-top: 15px">10</p>
+			<p style="padding-left: 15px;padding-top: 15px"> Skip: <p><p class="skip" style="padding-top: 15px"> 10</p>
 		</div>
 		<div class="progress">
 		

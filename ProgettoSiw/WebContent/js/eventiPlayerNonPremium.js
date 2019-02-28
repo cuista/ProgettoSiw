@@ -9,7 +9,7 @@ $(document).ready(function()
 	avviaTutteLeCanzoni();
 });
 	
-var indiceCorrente = 0;
+var indiceCorrente;
 var queueCanzoni;
 var skipRimasti = 10;
 
@@ -39,6 +39,7 @@ $(function()
 	{
 		if(skipRimasti > 0)
 		{
+			indiceCorrente=(indiceCorrente+1)%queueCanzoni.length;
 			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
 			
 			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
@@ -46,7 +47,27 @@ $(function()
 			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			
 			audio.play();
-			indiceCorrente++;
+			
+			$(".play-pause").removeClass("icon-play");
+			$(".play-pause").addClass("icon-stop");
+			
+			skipRimasti--;
+			$(".skip").text(skipRimasti);
+		}
+	});
+	
+	$('.previous').on('click', function()
+	{
+		if(skipRimasti > 0)
+		{
+			indiceCorrente=((indiceCorrente-1)>=0)?(indiceCorrente-1)%queueCanzoni.length:(queueCanzoni.length+(indiceCorrente-1));
+			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+			
+			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+			
+			audio.play();
 			
 			$(".play-pause").removeClass("icon-play");
 			$(".play-pause").addClass("icon-stop");
@@ -62,6 +83,7 @@ $(function()
 		
 		if(audio.currentTime == audio.duration)
 			{
+				indiceCorrente=(indiceCorrente+1)%queueCanzoni.length;
 				audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
 				
 				if(queueCanzoni[indiceCorrente%queueCanzoni.length]!="audio/benvenuti.mp3")
@@ -72,7 +94,6 @@ $(function()
 				}
 				
 				audio.play();
-				indiceCorrente++;
 				
 				$(".play-pause").removeClass("icon-play");
 				$(".play-pause").addClass("icon-stop");
@@ -91,6 +112,7 @@ function avviaTutteLeCanzoni()
 		success : function(canzoniJson) 
 		{
 			queueCanzoni = JSON.parse(canzoniJson);
+			indiceCorrente=0;
 			
 			//LA MANDO IN PLAY
 			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
@@ -98,7 +120,6 @@ function avviaTutteLeCanzoni()
 			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
 			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			audio.play();
-			indiceCorrente++;
 			$(".play-pause").removeClass("icon-play");
 			$(".play-pause").addClass("icon-stop");
 		},

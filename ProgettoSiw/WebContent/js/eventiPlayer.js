@@ -7,7 +7,7 @@
 $(document).ready(function() 
 {
 	queueCanzoni = ["audio/benvenuti.mp3"];
-	indiceCorrente = 1;
+	indiceCorrente = 0;
 });
 	
 var indiceCorrente;
@@ -37,6 +37,7 @@ $(function()
 	
 	$('.next').on('click', function()
 	{
+		indiceCorrente=(indiceCorrente+1)%queueCanzoni.length;
 		audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
 		
 		$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
@@ -44,7 +45,21 @@ $(function()
 		$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 		
 		audio.play();
-		indiceCorrente++;
+		
+		$(".play-pause").removeClass("icon-play");
+		$(".play-pause").addClass("icon-stop");
+	});
+	
+	$('.previous').on('click', function()
+	{
+		indiceCorrente=((indiceCorrente-1)>=0)?(indiceCorrente-1)%queueCanzoni.length:(queueCanzoni.length+(indiceCorrente-1));
+		audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+		
+		$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+		$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+		$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+		
+		audio.play();
 		
 		$(".play-pause").removeClass("icon-play");
 		$(".play-pause").addClass("icon-stop");
@@ -56,6 +71,7 @@ $(function()
 		
 		if(audio.currentTime == audio.duration)
 			{
+				indiceCorrente=(indiceCorrente+1)%queueCanzoni.length;
 				audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
 				
 				if(queueCanzoni[indiceCorrente%queueCanzoni.length]!="audio/benvenuti.mp3")
@@ -66,7 +82,6 @@ $(function()
 				}
 				
 				audio.play();
-				indiceCorrente++;
 				
 				$(".play-pause").removeClass("icon-play");
 				$(".play-pause").addClass("icon-stop");
@@ -86,6 +101,7 @@ function prendiCanzoneDaId(idCanzone)
 		success : function(canzoneJson) 
 		{
 			queueCanzoni = [JSON.parse(canzoneJson)];
+			indiceCorrente = 0;
 			
 			//LA MANDO IN PLAY
 			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
@@ -93,7 +109,6 @@ function prendiCanzoneDaId(idCanzone)
 			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
 			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			audio.play();
-			indiceCorrente++;
 			$(".play-pause").removeClass("icon-play");
 			$(".play-pause").addClass("icon-stop");
 		},
@@ -115,6 +130,7 @@ function prendiCanzoniDaIdAlbum(idAlbum)
 		success : function(canzoniJson) 
 		{
 			queueCanzoni = JSON.parse(canzoniJson);
+			indiceCorrente = 0;
 			
 			//LA MANDO IN PLAY
 			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
@@ -122,7 +138,6 @@ function prendiCanzoniDaIdAlbum(idAlbum)
 			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
 			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			audio.play();
-			indiceCorrente++;
 			$(".play-pause").removeClass("icon-play");
 			$(".play-pause").addClass("icon-stop");
 		},
@@ -144,6 +159,7 @@ function prendiCanzoniDaIdPlaylist(idPlaylist)
 		success : function(canzoniJson) 
 		{
 			queueCanzoni = JSON.parse(canzoniJson);
+			indiceCorrente = 0;
 			
 			//LA MANDO IN PLAY
 			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
@@ -151,7 +167,6 @@ function prendiCanzoniDaIdPlaylist(idPlaylist)
 			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
 			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 			audio.play();
-			indiceCorrente++;
 			$(".play-pause").removeClass("icon-play");
 			$(".play-pause").addClass("icon-stop");
 		},

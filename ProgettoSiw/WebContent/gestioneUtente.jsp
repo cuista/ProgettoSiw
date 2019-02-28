@@ -93,7 +93,7 @@
 				<c:if test="${!user.premium}">
 				<h3>Passa alla versione Premium,<br> il primo mese è gratis!</h3>
 				<p>Puoi annullare l'abbonamento in qualsiasi momento.<br>Al termine dell'offerta, solo 4,99€ al mese.</p>
-				<a href="#" class="btn btn-primary rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+				<a href="premium.jsp" class="btn btn-primary rounded-pill" role="button">PROVA GRATUITAMENTE</a>
 				</c:if>
 			</div>
 		</div>
@@ -139,8 +139,8 @@
 							<p class="lead">Vinyl è un servizio musicale che offre lo streaming on demand di una vasta gamma di brani da tutto il mondo, La musica può essere visualizzata per artista, album, etichetta, genere o playlist. Entra nella nostra community!</p>
 							<hr class="my-4">
 							<p>Gli utenti che hanno sottoscritto il servizio Premium o Unlimited o hanno già ricevuto un periodo di prova gratuito non possono accedere alla prova gratuita di 30 giorni.</p>
-							<p style="color: #919496;margin:10px;">*Offerta per la prova gratuita di 30 giorni di Vinyl® Si applicano<br><a href="#">Termini e condizioni</a>.</p>
-							<a class="btn btn-secondary btn-lg rounded-pill" href="#" role="button">SCOPRI DI PIÙ</a>
+							<p style="color: #919496;margin:10px;">*Offerta per la prova gratuita di 30 giorni di Vinyl® Si applicano<br><a href="terminiECondizioni.jsp">Termini e condizioni</a>.</p>
+							<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni.jsp" role="button">SCOPRI DI PIÙ</a>
 						</div>
 					</div>
 				</div>

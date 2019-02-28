@@ -13,6 +13,7 @@ $(document).ready(function()
 	    ricercaArtisti($("#inputSearch").val());
 	    ricercaPlaylist($("#inputSearch").val());
 	});
+	
 });
 
 //RICHIESTE AJAX
