@@ -6,7 +6,8 @@
 
 $(document).ready(function() 
 {
-	queueCanzoni = ["audio/benvenuti.mp3"];
+	var canzoneBenvenuto={titolo:"Benvenuto su Vinyl!",album:{titolo:"vinyl",anno:0,artista:{paese:"Italia",nome:"Ascolta subito i tuoi brani preferiti",id:-1,immagine:""},id:-2,immagine:"img/brand/brand_white.svg",genere:"introVinyl"},durata:0.20,id:-3,audio:"audio/benvenuti.mp3"};
+	queueCanzoni = [canzoneBenvenuto];
 	indiceCorrente = 0;
 });
 	
@@ -74,12 +75,9 @@ $(function()
 				indiceCorrente=(indiceCorrente+1)%queueCanzoni.length;
 				audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
 				
-				if(queueCanzoni[indiceCorrente%queueCanzoni.length]!="audio/benvenuti.mp3")
-				{
-					$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
-					$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
-					$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
-				}
+				$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+				$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+				$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
 				
 				audio.play();
 				

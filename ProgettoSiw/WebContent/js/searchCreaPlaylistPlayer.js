@@ -64,6 +64,7 @@ function aggiungiCanzoneAPlaylist(idCanzone)
 		{
 			var canzoneDaAggiungere = JSON.parse(canzoneJson);
 			nuovaPlaylist.push(canzoneDaAggiungere);
+			$(("#iconaPlaylist" + idCanzone)).attr("src", "img/icons/done-tick.svg");
 		},
 		error : function(canzoneJson) 
 		{
@@ -122,6 +123,14 @@ function riempiCanzoniPerPlaylist(list_canzoni)
 		.attr("src", list_canzoni[i].album.immagine)
 		.attr("alt", "immagine canzone")
 		.addClass("card-img-top shape-vinyl")
+		.appendTo(divCard);
+
+		var icona = $("<img>")
+		.attr("id",("iconaPlaylist" + list_canzoni[i].id))
+		.attr("src", "img/icons/add.svg")
+		.attr("alt", "icona")
+		.attr("style","position:absolute;")
+		.addClass("card-img-top")
 		.appendTo(divCard);
 		
 		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
