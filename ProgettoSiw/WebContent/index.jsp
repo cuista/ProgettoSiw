@@ -159,7 +159,7 @@
 	  			<hr class="my-4">
 	  			<p>Gli utenti che hanno sottoscritto il servizio Premium o Unlimited o hanno già ricevuto un periodo di prova gratuito non possono accedere alla prova gratuita di 30 giorni.</p>
 	  			<p style="color: #919496;margin:10px;">*Offerta per la prova gratuita di 30 giorni di Vinyl® Si applicano <a href="terminiECondizioni.jsp">Termini e condizioni</a>.</p>
-	  			<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni" role="button">SCOPRI DI PIÙ</a>
+	  			<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni.jsp" role="button">SCOPRI DI PIÙ</a>
 	  		</div>
 		</div>
 	</div>

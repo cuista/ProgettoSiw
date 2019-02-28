@@ -153,7 +153,7 @@
           								</div></li></ul>
  										</div>
 									<hr class="my-4">
-									<a href="#" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">PROVA GRATUITAMENTE</a>
+									<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni.jsp" role="button">SCOPRI DI PIÙ</a>
 								</div>
 							</div>
 						</div>

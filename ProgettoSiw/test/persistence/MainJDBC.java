@@ -51,9 +51,10 @@ public class MainJDBC
 		//Album albumDaEliminare=new Album("album3",2002,"metal",muse,null);
 		//Album albumDaAggiornare=new Album("album1",1978,"pop",luciobattisti,null);
 		
-		Album album_californication=new Album("californication",1999,"rock",redhotchilipeppers,"img/album/californication.jpg");
-		Album album_bytheway=new Album("bytheway",2002,"rock",redhotchilipeppers,"img/album/bytheway.jpg");
-		Album album_showbiz=new Album("showbiz",1999,"rock",muse,"img/album/showbiz.jpg");
+		Album album_californication=new Album("Californication",1999,"rock",redhotchilipeppers,"img/album/californication.jpg");
+		Album album_bytheway=new Album("By The Way",2002,"rock",redhotchilipeppers,"img/album/bytheway.jpg");
+		Album album_showbiz=new Album("Showbiz",1999,"rock",muse,"img/album/showbiz.jpg");
+		Album album_ilmiocantolibero=new Album("Il Mio Canto Libero",1972,"pop",luciobattisti,"img/album/ilmiocantolibero.jpg");
 		
 		//Canzone cannzoneDaAggiornare=new Canzone("titolo1",(float) 5.32,null);
 		//Canzone canzoneDaEliminare=new Canzone("titolo3",(float) 3.25,null);
@@ -104,6 +105,15 @@ public class MainJDBC
 		Canzone hatethisandillloveyou=new Canzone("Hate This And Ill Love You",(float) 5.09,album_showbiz,"audio/showbiz/hatethisandillloveyou.mp3");
 		Canzone spiralstatic=new Canzone("Spiral Static",(float) 4.43,album_showbiz,"audio/showbiz/spiralstatic.mp3");
 		
+		Canzone lalucedellest=new Canzone("La Luce Dell Est",(float) 6.18,album_ilmiocantolibero,"audio/ilmiocantolibero/lalucedellest.mp3");
+		Canzone luciah=new Canzone("Luci Ah",(float) 4.47,album_ilmiocantolibero,"audio/ilmiocantolibero/luciah.mp3");
+		Canzone laquila=new Canzone("L Aquila",(float) 4.24,album_ilmiocantolibero,"audio/ilmiocantolibero/laquila.mp3");
+		Canzone ventonelvento=new Canzone("Vento Nel Vento",(float) 3.24,album_ilmiocantolibero,"audio/ilmiocantolibero/ventonelvento.mp3");
+		Canzone confusione=new Canzone("Confusione",(float) 4.30,album_ilmiocantolibero,"audio/ilmiocantolibero/confusione.mp3");
+		Canzone iovorreinonvorrei=new Canzone("Io Vorrei Non Vorrei",(float) 4.35,album_ilmiocantolibero,"audio/ilmiocantolibero/iovorreinonvorrei.mp3");
+		Canzone genteperbeneegentepermale=new Canzone("Gente Per Bene E Gente Per Male",(float) 4.46,album_ilmiocantolibero,"audio/ilmiocantolibero/genteperbeneegentepermale.mp3");
+		Canzone ilmiocantolibero=new Canzone("Il Mio Canto Libero",(float) 5.06,album_ilmiocantolibero,"audio/ilmiocantolibero/ilmiocantolibero.mp3");
+		
 		//Playlist playlistDaEliminare=new Playlist("playlist2",null);
 		Playlist playlist1=new Playlist("rock preferite",destiny);
 		Playlist playlist2=new Playlist("playlist buonanotte",destiny);
@@ -130,6 +140,7 @@ public class MainJDBC
 		albumDao.save(album_californication);
 		albumDao.save(album_bytheway);
 		albumDao.save(album_showbiz);
+		albumDao.save(album_ilmiocantolibero);
 		
 		//canzoneDao.save(cannzoneDaAggiornare);
 		//canzoneDao.save(canzoneDaEliminare);
@@ -179,6 +190,15 @@ public class MainJDBC
 		canzoneDao.save(overdue);
 		canzoneDao.save(hatethisandillloveyou);
 		canzoneDao.save(spiralstatic);
+		
+		canzoneDao.save(lalucedellest);
+		canzoneDao.save(luciah);
+		canzoneDao.save(laquila);
+		canzoneDao.save(ventonelvento);
+		canzoneDao.save(confusione);
+		canzoneDao.save(iovorreinonvorrei);
+		canzoneDao.save(genteperbeneegentepermale);
+		canzoneDao.save(ilmiocantolibero);
 		
 		//playlistDap.save(playlistDaEliminare);
 		playlistDao.save(playlist1);
@@ -232,7 +252,7 @@ public class MainJDBC
 		playlist1.addCanzone(hatethisandillloveyou.getId());
 		playlistDao.update(playlist1);
 		
-		playlist2.addCanzone(thezephyrsong.getId());
+		playlist2.addCanzone(genteperbeneegentepermale.getId());
 		playlist2.addCanzone(bytheway.getId());
 		playlist2.addCanzone(minorthing.getId());
 		playlist2.addCanzone(venicequeen.getId());
@@ -240,22 +260,22 @@ public class MainJDBC
 		playlist2.addCanzone(overdue.getId());
 		playlistDao.update(playlist2);
 		
-		playlist3.addCanzone(tear.getId());
+		playlist3.addCanzone(iovorreinonvorrei.getId());
 		playlist3.addCanzone(getontop.getId());
-		playlist3.addCanzone(dontforgetme.getId());
+		playlist3.addCanzone(ilmiocantolibero.getId());
 		playlist3.addCanzone(otherside.getId());
 		playlist3.addCanzone(sober.getId());
 		playlist3.addCanzone(spiralstatic.getId());
 		playlistDao.update(playlist3);
 		
-		playlist4.addCanzone(rightontime.getId());
+		playlist4.addCanzone(confusione.getId());
 		playlist4.addCanzone(fallingdown.getId());
-		playlist4.addCanzone(warmtape.getId());
+		playlist4.addCanzone(genteperbeneegentepermale.getId());
 		playlist4.addCanzone(sober.getId());
 		playlistDao.update(playlist4);
 		
-		playlist5.addCanzone(aroundtheworld.getId());
 		playlist5.addCanzone(showbiz.getId());
+		playlist5.addCanzone(aroundtheworld.getId());
 		playlist5.addCanzone(venicequeen.getId());
 		playlist5.addCanzone(unintended.getId());
 		playlist5.addCanzone(fillip.getId());

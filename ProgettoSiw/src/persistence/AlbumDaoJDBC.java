@@ -146,6 +146,50 @@ public class AlbumDaoJDBC implements AlbumDao
 		}
 		return list_album;
 	}
+	
+	@Override
+	public List<Album> getAlbumDiArtista(Long id_artista)
+	{
+		Connection connection = this.dataSource.getConnection();
+		ArtistaDao artistaDao=DatabaseManager.getInstance().getDaoFactory().getArtistaDAO();
+		List<Album> list_album = new LinkedList<>();
+		try
+		{
+			String insert = "select * from album where artista = ?";
+			PreparedStatement statement = connection.prepareStatement(insert);
+			statement.setLong(1, id_artista);
+			ResultSet result = statement.executeQuery();
+			while (result.next())
+			{
+				Album album = new Album(result.getString("titolo"),result.getInt("anno"),result.getString("genere"),artistaDao.findByPrimaryKey(result.getLong("artista")),result.getString("immagine"));
+				album.setId(result.getLong("id"));
+
+				list_album.add(album);
+			}
+		} catch (SQLException e)
+		{
+			if (connection != null)
+			{
+				try
+				{
+					connection.rollback();
+				} catch (SQLException excep)
+				{
+					throw new PersistenceException(e.getMessage());
+				}
+			}
+		} finally
+		{
+			try
+			{
+				connection.close();
+			} catch (SQLException e)
+			{
+				throw new PersistenceException(e.getMessage());
+			}
+		}
+		return list_album;
+	}
 
 	@Override
 	public void update(Album album)

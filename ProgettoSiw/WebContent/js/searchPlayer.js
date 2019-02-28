@@ -175,7 +175,7 @@ function riempiArtisti(list_artisti)
 	{
 		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
 		
-		var divCard = $("<div>").addClass("card").appendTo(divColonna);
+		var divCard = $("<div>").addClass("card").attr("onclick","prendiCanzoniDaIdArtista(" + list_artisti[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
 		
 		var immagine = $("<img>")
 		.attr("src", list_artisti[i].immagine)

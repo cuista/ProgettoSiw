@@ -175,3 +175,32 @@ function prendiCanzoniDaIdPlaylist(idPlaylist)
 	});
 }
 
+function prendiCanzoniDaIdArtista(idArtista)
+{	
+	$.ajax({
+		type : "POST",
+		url : "PrendiCanzoniDaIdArtista",
+		datatype : "json",
+		data : {idArtista : idArtista},
+		
+		success : function(canzoniJson) 
+		{
+			queueCanzoni = JSON.parse(canzoniJson);
+			indiceCorrente = 0;
+			
+			//LA MANDO IN PLAY
+			audio.src = queueCanzoni[indiceCorrente%queueCanzoni.length].audio;
+			$(".player").find(".name").text(queueCanzoni[indiceCorrente%queueCanzoni.length].titolo);
+			$(".player").find(".singer").text(queueCanzoni[indiceCorrente%queueCanzoni.length].album.artista.nome);
+			$(".player").find(".artwork").attr("src",queueCanzoni[indiceCorrente%queueCanzoni.length].album.immagine);
+			audio.play();
+			$(".play-pause").removeClass("icon-play");
+			$(".play-pause").addClass("icon-stop");
+		},
+		error : function(canzoniJson) 
+		{
+			alert("ERROR");
+		}
+	});
+}
+
