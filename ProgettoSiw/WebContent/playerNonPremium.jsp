@@ -44,7 +44,9 @@
 						<a class="nav-link dark-link list-group-item" id="tab-elem3" data-toggle="tab" role="tab" aria-controls="elem3" aria-selected="false" href="#elem3">
 							<img src="img/icons/playlist-file.svg" class="d-inline-block align-top" alt="playlist-icon" style="margin-right: 5px;" height="24">Crea Playlist
 						</a>
-						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">Privacy Policy</a>
+						<a class="nav-link dark-link list-group-item" id="tab-elem4" data-toggle="tab" role="tab" aria-controls="elem4" aria-selected="false" href="#elem4">
+							<img src="img/icons/share.svg" class="d-inline-block align-top" alt="playlist-share-icon" style="margin-right: 5px;" height="24">Condividi Playlist
+						</a>
 					</div>
 					<hr style="background-color:gray;">
 					<a class="nav-link dark-link list-group-item" href="index.jsp">
@@ -130,33 +132,20 @@
 				</div>
 				<div class="tab-pane fade" id="elem4" role="tabpanel" aria-labelledby="tab-4">
 					<div class="tab-padding">
-						<h2 class="text-subtitle text-white"> Privacy Policy </h2>
+					
+						<h2 class="text-subtitle text-white" style="text-align: center;"> FUNZIONALITÀ BLOCCATE! </h2>
 						<hr style="background-color: #fff;">
 						<div class="row">
 							<div class="col-lg-6 offset-lg-3">
 								<div class="jumbotron border">
-										<div class="iub_content simple_pp"><div class="iub_header"><h1>Privacy Policy di <strong>Vinyl</strong></h1><p>
-        								Questa Applicazione raccoglie alcuni Dati Personali dei propri Utenti.
-      									</p></div><h2 id="purposes_data">Dati personali raccolti per le seguenti finalità ed utilizzando i seguenti servizi:</h2>
-      									<ul class="for_boxes cf"><li class="one_line_col">
-        								<div class="iconed policyicon_purpose_9"><h3>Registrazione ed autenticazione</h3>
-                      					<h3>Facebook Authentication</h3>
-                        				<p>Dati Personali: varie tipologie di Dati secondo quanto specificato dalla privacy policy del servizio</p>
-                    					</div>
-      									</li></ul><h2 id="contact_information">Informazioni di contatto</h2>
-	   					 				<ul class="for_boxes">
-        								<li>
-          								<div class="iconed icon_owner">
-            							<h3>Titolare del Trattamento dei Dati</h3>
-                						<p>Vinyl Corp</p>
-                						<p><b>Indirizzo email del Titolare:</b> vinyl-1251512-support@vinyl-staff.it</p>
-          								</div></li></ul>
- 										</div>
+									<h3 class="text-message text">Per gli utenti NON Premium non è possibilè utilizzare tutte le funzioni del player.</h3>
+									<p> Ascolta brani casuali dal player, attenzione gli skip sono limitati.</p>
 									<hr class="my-4">
-									<a class="btn btn-secondary btn-lg rounded-pill" href="terminiECondizioni.jsp" role="button">SCOPRI DI PIÙ</a>
+									<a href="premium.jsp" class="btn btn-success btn-lg btn-block rounded-pill" role="button">PASSA A PREMIUM</a>
 								</div>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>

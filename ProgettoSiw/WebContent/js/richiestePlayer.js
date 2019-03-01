@@ -64,6 +64,7 @@ function dammiPlaylistUtente()
 		{
 			list_playlistUtente = JSON.parse(playlistUtenteJson);
 			riempiPlaylistUtente(list_playlistUtente);
+			riempiCondividiPlaylist(list_playlistUtente);
 		},
 		error : function(playlistUtenteJson)
 		{
@@ -199,6 +200,43 @@ function riempiPlaylistUtente(list_playlistUtente)
 		var immagine = $("<img>")
 		.attr("src", "img/icons/playlist-file.svg")
 		.attr("alt", "playlist condivisa")
+		.addClass("card-img-top")
+		.appendTo(divCard);
+		
+		var divCardBody = $("<div>").addClass("card-body").appendTo(divCard);
+		
+		var p = $("<p>").addClass("card-title text-white").text(list_playlistUtente[i].nome).appendTo(divCardBody);	
+	}
+}
+
+function riempiCondividiPlaylist(list_playlistUtente)
+{
+	var divPartenza = $(".condividiPlaylist");
+	divPartenza.html("");
+	
+	if(list_playlistUtente.length==0)
+	{
+		var nessunRisultato = $("<p>").addClass("text-white").attr("style", "width:100%;font-size: 2rem;").text("Nessun Risultato");
+		divPartenza.append(nessunRisultato);
+	}
+	
+	for(var i=0; i<list_playlistUtente.length; i++)
+	{		
+		var divColonna = $("<div>").addClass("col-xs-6 col-sm-4 col-md-3 col-lg-2 col-xl-2").appendTo(divPartenza);
+		
+		var divCard = $("<div>").addClass("card").attr("onclick","condividiPlaylistId(" + list_playlistUtente[i].id + ")").attr("onmouseover","").attr("style","cursor: pointer;").appendTo(divColonna);
+		
+		var immagine = $("<img>")
+		.attr("src", "img/icons/playlist-file.svg")
+		.attr("alt", "playlist condivisa")
+		.addClass("card-img-top")
+		.appendTo(divCard);
+		
+		var icona = $("<img>")
+		.attr("id",("iconaPlaylistCondivisa" + list_playlistUtente[i].id))
+		.attr("src", "img/icons/share-playlist.svg")
+		.attr("alt", "icona")
+		.attr("style","position:absolute;")
 		.addClass("card-img-top")
 		.appendTo(divCard);
 		

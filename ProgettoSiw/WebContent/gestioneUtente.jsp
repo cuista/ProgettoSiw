@@ -210,7 +210,7 @@
 							<img src="img/brand/brand_black_vinyl.svg" width="225" height="60" class="d-inline-block align-top" alt="vinyl-brand">
 							<hr class="my-4">
 							<p class="lead"> Desideri tornare alla versione free? </p>
-							<button onclick="disdiciPremium()" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">DISDICI PREMIUM</a>
+							<button onclick="disdiciPremium()" class="btn btn-primary btn-lg btn-block rounded-pill" role="button">DISDICI PREMIUM</button>
 						</div>
 						</c:if>
 						<!-- SE UTENTE NON PREMIUM -->

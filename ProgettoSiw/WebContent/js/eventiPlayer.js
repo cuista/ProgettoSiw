@@ -204,3 +204,27 @@ function prendiCanzoniDaIdArtista(idArtista)
 	});
 }
 
+function condividiPlaylistId(idPlaylist)
+{
+	$.ajax({
+		type : "POST",
+		url : "CondividiPlaylist",
+		datatype : "json",
+		data : {idPlaylist : idPlaylist},
+		
+		success : function() 
+		{
+			dammiPlaylistCondiviseDaUtente();
+			$(("#iconaPlaylistCondivisa" + idPlaylist)).attr("src", "img/icons/done-tick.svg");
+			setTimeout(function() 
+			{
+				$(("#iconaPlaylistCondivisa" + idPlaylist)).attr("src", "img/icons/share-playlist.svg");
+			}, 1000);
+		},
+		error : function() 
+		{
+			alert("ERROR");
+		}
+	});
+}
+
